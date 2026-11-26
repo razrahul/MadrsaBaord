@@ -1,0 +1,148 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "Skip to main content" [ref=e5] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=e7]:
+      - generic [ref=e8]: Official public information portal
+      - generic [aria-hidden] [ref=e9]: •
+      - generic [ref=e10]: Patna, Bihar
+    - link "Bihar State Madrasa Education Board home" [ref=e12] [cursor=pointer]:
+      - /url: "#home"
+      - img "Bihar State Madrasa Education Board emblem" [ref=e14]
+      - generic [ref=e15]:
+        - generic [ref=e16]: Bihar State Madrasa Education Board
+        - generic [ref=e17]: Government of Bihar
+    - navigation "Primary navigation" [ref=e18]:
+      - generic [ref=e19]:
+        - link "Home" [ref=e20] [cursor=pointer]:
+          - /url: "#home"
+        - link "About Board" [ref=e21] [cursor=pointer]:
+          - /url: "#about"
+        - link "Examination" [ref=e22] [cursor=pointer]:
+          - /url: "#examination"
+        - link "Notices" [ref=e23] [cursor=pointer]:
+          - /url: "#updates"
+        - link "Affiliation" [ref=e24] [cursor=pointer]:
+          - /url: "#affiliation"
+        - link "Contact" [ref=e25] [cursor=pointer]:
+          - /url: "#contact"
+        - link "Latest updates" [ref=e26] [cursor=pointer]:
+          - /url: "#updates"
+  - main [ref=e27]:
+    - region "A clearer public service experience for every learner." [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Bihar State Madrasa Education Board
+          - heading "A clearer public service experience for every learner." [level=1] [ref=e32]
+          - paragraph [ref=e33]: Official notices, examination information, services, and affiliated madrasa resources will be available from one accessible public portal.
+          - generic [ref=e34]:
+            - link "View latest updates" [ref=e35] [cursor=pointer]:
+              - /url: "#updates"
+            - link "Explore services" [ref=e38] [cursor=pointer]:
+              - /url: "#services"
+          - paragraph [ref=e39]: Homepage visual preview — official content will be added after verification.
+        - generic [ref=e40]:
+          - img "A teacher explaining a lesson to students in a classroom" [ref=e41]
+          - generic [ref=e42]: Education for opportunity, knowledge, and progress.
+          - generic "Hero carousel controls" [ref=e43]:
+            - button "Previous slide" [disabled] [ref=e44]
+            - generic [ref=e47]: 01 / 01
+            - button "Next slide" [disabled] [ref=e48]
+    - region [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: Online services
+          - heading "Services, made simpler to find." [level=2] [ref=e55]
+          - paragraph [ref=e56]: Official links will be added here after the Board verifies each destination.
+        - generic [ref=e57]:
+          - generic [ref=e59]:
+            - heading "Online Admission" [level=3] [ref=e64]
+            - paragraph [ref=e65]: Service details will be added shortly.
+            - generic [ref=e66]: Coming soon
+          - generic [ref=e71]:
+            - heading "Registration" [level=3] [ref=e76]
+            - paragraph [ref=e77]: Service details will be added shortly.
+            - generic [ref=e78]: Coming soon
+          - generic [ref=e83]:
+            - heading "Examination" [level=3] [ref=e88]
+            - paragraph [ref=e89]: Service details will be added shortly.
+            - generic [ref=e90]: Coming soon
+          - generic [ref=e95]:
+            - heading "Results" [level=3] [ref=e99]
+            - paragraph [ref=e100]: Service details will be added shortly.
+            - generic [ref=e101]: Coming soon
+          - generic [ref=e106]:
+            - heading "Equivalence" [level=3] [ref=e112]
+            - paragraph [ref=e113]: Service details will be added shortly.
+            - generic [ref=e114]: Coming soon
+          - generic [ref=e119]:
+            - heading "Madrasa Services" [level=3] [ref=e125]
+            - paragraph [ref=e126]: Service details will be added shortly.
+            - generic [ref=e127]: Coming soon
+    - region [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]:
+          - paragraph [ref=e134]: Public updates
+          - heading "Notices and documents in one place." [level=2] [ref=e135]
+          - paragraph [ref=e136]: Verified items will appear here as soon as the content source is connected.
+        - generic [ref=e137]:
+          - tablist "Public update categories" [ref=e138]:
+            - tab "Notices" [selected] [ref=e139] [cursor=pointer]
+            - tab "Tenders" [ref=e140] [cursor=pointer]
+            - tab "Proformas" [ref=e141] [cursor=pointer]
+          - tabpanel [ref=e142]:
+            - generic [ref=e143]: "N"
+            - heading "No notices published yet." [level=3] [ref=e144]
+            - paragraph [ref=e145]: Once verified content is available, it will be listed here with date, document type, and a secure view/download link.
+    - region [ref=e146]:
+      - generic [ref=e147]:
+        - generic [ref=e148]:
+          - paragraph [ref=e149]: Board information
+          - heading "An organised home for public information." [level=2] [ref=e150]
+          - paragraph [ref=e151]: Each section is ready for official content when it is available.
+        - generic [ref=e152]:
+          - article [ref=e153]:
+            - heading "Board leadership" [level=3] [ref=e158]
+            - paragraph [ref=e159]: Authorised board leadership details will be added after approval.
+          - article [ref=e160]:
+            - heading "Activities & gallery" [level=3] [ref=e166]
+            - paragraph [ref=e167]: Official photographs and activity stories will be published here.
+          - article [ref=e168]:
+            - heading "Examination & equivalence" [level=3] [ref=e173]
+            - paragraph [ref=e174]: Programme structure and equivalence information will be added here.
+          - article [ref=e175]:
+            - heading "Affiliated madrasas" [level=3] [ref=e180]
+            - paragraph [ref=e181]: Affiliation resources and institution lookup will be available here.
+    - region "Examination and equivalence information will be presented with clarity." [ref=e182]:
+      - generic [ref=e183]:
+        - paragraph [ref=e184]: Structure in progress
+        - heading "Examination and equivalence information will be presented with clarity." [level=2] [ref=e185]
+        - paragraph [ref=e186]: Wastania, Fauquania, Moulvi, supporting documents, and the approved equivalence structure will be published here once supplied by the Board.
+    - region "Resources for affiliated madrasas." [ref=e187]:
+      - generic [ref=e188]:
+        - generic [ref=e189]:
+          - paragraph [ref=e190]: Affiliation
+          - heading "Resources for affiliated madrasas." [level=2] [ref=e191]
+        - paragraph [ref=e192]: District-wise search, affiliation guidance, and official institution-related services will be connected after the relevant data and links are approved.
+  - contentinfo [ref=e193]:
+    - generic [ref=e194]:
+      - generic [ref=e196]:
+        - paragraph [ref=e197]: Official portal
+        - heading "Bihar State Madrasa Education Board" [level=2] [ref=e198]
+        - paragraph [ref=e199]: Official contact information will be published here after verification.
+      - generic [ref=e200]:
+        - heading "Quick links" [level=3] [ref=e201]
+        - link "Notices & tenders" [ref=e202] [cursor=pointer]:
+          - /url: "#updates"
+        - link "Examination structure" [ref=e203] [cursor=pointer]:
+          - /url: "#examination"
+        - link "Affiliation information" [ref=e204] [cursor=pointer]:
+          - /url: "#affiliation"
+      - generic [ref=e205]:
+        - heading "Contact" [level=3] [ref=e206]
+        - paragraph [ref=e207]: Patna, Bihar
+        - paragraph [ref=e211]: To be updated
+        - paragraph [ref=e214]: To be updated
+    - generic [ref=e218]:
+      - generic [ref=e219]: © 2026 Bihar State Madrasa Education Board
+      - generic [ref=e220]: Privacy policy and accessibility statement will be added before launch.
