@@ -46,7 +46,7 @@ export function ThemeSwitcher() {
         <div
           role="region"
           aria-label={t.themeSwitcher.heading}
-          className="mb-1.5 min-w-44 rounded-lg border border-line bg-white/92 p-2 shadow-[0_6px_18px_rgb(16_35_63_/_10%)] backdrop-blur-md"
+          className="mb-1.5 min-w-44 rounded-sm border border-line bg-white/95 p-2 shadow-[0_6px_18px_rgb(16_35_63_/_10%)] backdrop-blur-md"
         >
           <p className="m-0 mb-1.5 px-1.5 text-[10px] font-bold tracking-wider text-ink-soft uppercase">
             {t.themeSwitcher.heading}
@@ -58,7 +58,7 @@ export function ThemeSwitcher() {
               onClick={() => setTheme(item.id)}
               aria-pressed={theme === item.id}
               className={cn(
-                'flex w-full items-center gap-2 rounded-md border-0 px-2 py-1.5 text-left text-xs transition',
+                'flex w-full items-center gap-2 rounded-xs border-0 px-2 py-1.5 text-left text-xs transition',
                 theme === item.id
                   ? 'bg-brand-soft font-bold text-brand-strong'
                   : 'bg-transparent font-medium text-ink hover:bg-surface-muted'
@@ -80,7 +80,7 @@ export function ThemeSwitcher() {
         aria-label={t.themeSwitcher.heading}
         aria-expanded={open}
         className={cn(
-          'inline-flex items-center gap-1.5 rounded-lg border border-ink/15 px-2.5 py-1 text-[11px] font-semibold text-ink-soft backdrop-blur-sm transition hover:bg-white/85 hover:opacity-100',
+          'inline-flex items-center gap-1.5 rounded-sm border border-ink/15 px-2.5 py-1 text-[11px] font-semibold text-ink-soft backdrop-blur-sm transition hover:bg-white/85 hover:opacity-100',
           open ? 'bg-white/85 opacity-100' : 'bg-white/45 opacity-70'
         )}
       >

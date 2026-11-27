@@ -73,7 +73,7 @@ export function UpdatesSection({
           </div>
 
           <div className="col-start-2 flex shrink-0 items-center justify-start gap-3 sm:col-start-auto">
-            <span className="rounded-sm border border-line/45 bg-surface-muted/35 px-2 py-0.5 text-[11px] font-medium text-ink-soft">
+            <span className="rounded-xs border border-line/45 bg-surface-muted/35 px-2 py-0.5 text-[11px] font-medium text-ink-soft">
               {langLabel[item.language]}
             </span>
             <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-strong underline-offset-2 group-hover:underline">
@@ -93,7 +93,7 @@ export function UpdatesSection({
         onValueChange={(value) => onCategoryChange(value as UpdateCategory)}
         className="gap-0"
       >
-        <Card className="gap-0 overflow-hidden rounded-md border border-line/45 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0">
+        <Card className="gap-0 overflow-hidden rounded-sm border border-line/45 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0">
           <CardHeader className="shrink-0 gap-0 bg-surface p-0!">
             <div className="flex items-center justify-between gap-3 px-5 pt-4 pb-2.5">
               <div className="flex flex-col gap-1.5">

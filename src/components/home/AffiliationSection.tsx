@@ -35,11 +35,11 @@ export function AffiliationSection() {
             return (
               <Card
                 key={card.id}
-                className="flex h-full flex-col gap-2 rounded-lg border border-line/55 bg-surface py-5 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0 transition-colors hover:border-brand/45"
+                className="flex h-full flex-col gap-2 rounded-sm border border-line/55 bg-surface py-5 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0 transition-colors hover:border-brand/45"
               >
                 <CardHeader className="gap-2.5 px-5">
                   <span
-                    className="grid size-9 place-items-center rounded-md bg-brand-soft/75 text-brand-strong"
+                    className="grid size-9 place-items-center rounded-sm bg-brand-soft/75 text-brand-strong"
                     aria-hidden="true"
                   >
                     <Icon size={18} />

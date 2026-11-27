@@ -35,13 +35,13 @@ export function ServicesSection({ services }: ServicesSectionProps) {
               <a
                 key={service.id}
                 href={service.href}
-                className="group block w-42 rounded-lg text-inherit no-underline"
+                className="group block w-42 rounded-sm text-inherit no-underline"
                 title={service.isLive ? description : `${title} — ${t.services.comingSoonSuffix}`}
                 {...(service.isExternal && service.isLive
                   ? { target: '_blank', rel: 'noopener noreferrer' }
                   : {})}
               >
-                <Card className="h-full min-h-48 w-full gap-0 rounded-lg border border-line/55 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0 transition-colors duration-200 group-hover:border-brand/45 group-hover:bg-brand-soft/60 group-focus-visible:border-brand/45 group-focus-visible:bg-brand-soft/60">
+                <Card className="h-full min-h-48 w-full gap-0 rounded-sm border border-line/55 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0 transition-colors duration-200 group-hover:border-brand/45 group-hover:bg-brand-soft/60 group-focus-visible:border-brand/45 group-focus-visible:bg-brand-soft/60">
                   <CardContent className="flex h-full min-h-48 flex-col items-center justify-center gap-3.5 px-3.5 py-6 text-center">
                     <span className="grid place-items-center text-ink transition-colors duration-200 group-hover:text-brand-strong group-focus-visible:text-brand-strong">
                       <Icon aria-hidden="true" size={46} strokeWidth={1.6} />

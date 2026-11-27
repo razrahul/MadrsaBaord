@@ -14,9 +14,9 @@
   --focus-ring: #e2a64e;
   --shadow-sm: 0 8px 24px rgb(15 35 61 / 8%);
   --shadow-lg: 0 24px 70px rgb(15 35 61 / 16%);
-  --radius-sm: .75rem;
-  --radius-md: 1.25rem;
-  --radius-lg: 1.75rem;
+  --radius-sm: .25rem;
+  --radius-md: .375rem;
+  --radius-lg: .5rem;
   --content-width: 74rem;
   --background: var(--canvas);
   --foreground: var(--ink);

@@ -96,7 +96,7 @@ export function HeroSection({ slides }: HeroSectionProps) {
           <div className="flex flex-wrap gap-3">
             {slide.primaryAction && primaryLabel && (
               <a
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-white px-4 py-2.5 text-sm font-bold text-brand-strong no-underline transition-colors hover:bg-surface-muted"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-white px-4 py-2.5 text-sm font-bold text-brand-strong no-underline transition-colors hover:bg-surface-muted"
                 href={slide.primaryAction.href}
               >
                 {primaryLabel} <ArrowRight size={16} aria-hidden="true" />
@@ -104,7 +104,7 @@ export function HeroSection({ slides }: HeroSectionProps) {
             )}
             {slide.secondaryAction && secondaryLabel && (
               <a
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-white/45 bg-transparent px-4 py-2.5 text-sm font-bold text-white no-underline transition-colors hover:bg-white/10"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-white/45 bg-transparent px-4 py-2.5 text-sm font-bold text-white no-underline transition-colors hover:bg-white/10"
                 href={slide.secondaryAction.href}
               >
                 {secondaryLabel}
@@ -114,7 +114,7 @@ export function HeroSection({ slides }: HeroSectionProps) {
         </div>
 
         {/* Media */}
-        <div className="relative min-h-70 overflow-hidden rounded-lg border border-white/20 shadow-[0_8px_24px_rgb(10_22_40_/_20%)] sm:min-h-78">
+        <div className="relative min-h-70 overflow-hidden rounded-sm border border-white/20 shadow-[0_8px_24px_rgb(10_22_40_/_20%)] sm:min-h-78">
           {slides.map((s, i) => (
             <img
               key={s.id}

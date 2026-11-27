@@ -33,7 +33,7 @@ export function LeadershipSection({ leaders }: LeadershipSectionProps) {
             >
               <div
                 className={cn(
-                  'mb-2 overflow-hidden rounded-2xl border border-line/85 bg-white shadow-[0_10px_24px_rgb(16_35_63_/_11%)]',
+                  'mb-2 overflow-hidden rounded-sm border border-line/60 bg-white shadow-[0_1px_3px_rgb(16_35_63_/_6%)]',
                   isCM ? 'size-44' : 'size-37'
                 )}
               >

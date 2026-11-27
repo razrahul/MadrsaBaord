@@ -268,13 +268,13 @@ export function SiteHeader() {
             : 'relative z-30 border-line bg-white/95 shadow-[0_2px_12px_rgb(16_35_63_/_7%)]'
         )}
       >
-        <div className="site-shell flex min-h-18 items-center gap-5">
+        <div className="site-shell flex min-h-20 items-center gap-5 py-1.5">
           <a
-            className="mr-2 inline-flex shrink-0 items-center gap-3 no-underline"
+            className="mr-2 inline-flex shrink-0 items-center gap-3.5 no-underline"
             href="#home"
             aria-label={t.brand.primaryName}
           >
-            <span className="grid size-11 shrink-0 place-items-center sm:size-14">
+            <span className="grid size-13 shrink-0 place-items-center sm:size-17">
               <img
                 src="/logo.png"
                 alt="BSMEB emblem"
@@ -307,7 +307,7 @@ export function SiteHeader() {
                     <button
                       type="button"
                       className={cn(
-                        'inline-flex items-center gap-1 rounded-lg border px-3 py-2 text-sm font-bold whitespace-nowrap transition',
+                        'inline-flex items-center gap-1 rounded-sm border px-3 py-2 text-sm font-bold whitespace-nowrap transition',
                         isOpen
                           ? 'border-brand/25 bg-brand-soft text-brand'
                           : 'border-transparent bg-transparent text-ink-soft hover:bg-brand-soft hover:text-brand'
@@ -326,7 +326,7 @@ export function SiteHeader() {
 
                     {isOpen && (
                       <div
-                        className="absolute top-[calc(100%+0.35rem)] left-1/2 z-50 grid -translate-x-1/2 grid-cols-2 gap-1 rounded-xl border border-line bg-surface p-1.5 shadow-[0_8px_24px_rgb(15_35_61_/_10%)]"
+                        className="absolute top-[calc(100%+0.35rem)] left-1/2 z-50 grid -translate-x-1/2 grid-cols-2 gap-1 rounded-sm border border-line bg-surface p-1.5 shadow-[0_8px_24px_rgb(15_35_61_/_10%)]"
                         style={{ minWidth: '22rem' }}
                         role="menu"
                         aria-label={`${item.label} submenu`}
@@ -334,7 +334,7 @@ export function SiteHeader() {
                         <a
                           href={item.href}
                           role="menuitem"
-                          className="group flex items-center justify-between gap-2 rounded-lg bg-brand-soft/55 px-3 py-2 text-[13px] font-bold whitespace-nowrap text-brand no-underline transition hover:bg-brand-soft hover:text-brand-strong"
+                          className="group flex items-center justify-between gap-2 rounded-xs bg-brand-soft/55 px-3 py-2 text-[13px] font-bold whitespace-nowrap text-brand no-underline transition hover:bg-brand-soft hover:text-brand-strong"
                           onClick={() => setOpenDropdown(null)}
                         >
                           <span>{t.header.examinationOverview}</span>
@@ -349,7 +349,7 @@ export function SiteHeader() {
                             key={sub.label}
                             href={sub.href}
                             role="menuitem"
-                            className="group flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-[13px] font-semibold whitespace-nowrap text-ink no-underline transition hover:bg-brand-soft hover:text-brand-strong"
+                            className="group flex items-center justify-between gap-2 rounded-xs px-3 py-2 text-[13px] font-semibold whitespace-nowrap text-ink no-underline transition hover:bg-brand-soft hover:text-brand-strong"
                             onClick={() => setOpenDropdown(null)}
                           >
                             <span>{sub.label}</span>
@@ -372,7 +372,7 @@ export function SiteHeader() {
                   href={item.href}
                   role="listitem"
                   onClick={() => setIsMenuOpen(false)}
-                  className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-bold whitespace-nowrap text-ink-soft no-underline transition hover:bg-brand-soft hover:text-brand"
+                  className="inline-flex items-center gap-1.5 rounded-sm px-3 py-2 text-sm font-bold whitespace-nowrap text-ink-soft no-underline transition hover:bg-brand-soft hover:text-brand"
                 >
                   {item.label}
                   {item.key === 'notices' && <Badge variant="new">{t.header.newBadge}</Badge>}
@@ -383,7 +383,7 @@ export function SiteHeader() {
 
           {/* Mobile toggle */}
           <button
-            className="ml-auto grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-surface text-brand lg:hidden"
+            className="ml-auto grid size-10 shrink-0 place-items-center rounded-sm border border-line bg-surface text-brand lg:hidden"
             type="button"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav-panel"
@@ -405,7 +405,7 @@ export function SiteHeader() {
                   <div key={item.key} className="flex flex-col">
                     <button
                       type="button"
-                      className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-base font-bold text-ink-soft transition hover:bg-brand-soft hover:text-brand"
+                      className="flex w-full items-center justify-between rounded-sm px-4 py-3 text-left text-base font-bold text-ink-soft transition hover:bg-brand-soft hover:text-brand"
                       aria-expanded={mobileSubOpen === item.key}
                       onClick={() =>
                         setMobileSubOpen((v) => (v === item.key ? null : item.key))
@@ -426,7 +426,7 @@ export function SiteHeader() {
                         <a
                           href={item.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="rounded-lg px-3 py-2 text-sm font-semibold text-ink-soft no-underline hover:bg-brand-soft hover:text-brand"
+                          className="rounded-sm px-3 py-2 text-sm font-semibold text-ink-soft no-underline hover:bg-brand-soft hover:text-brand"
                         >
                           {t.header.examinationOverview}
                         </a>
@@ -435,7 +435,7 @@ export function SiteHeader() {
                             key={sub.label}
                             href={sub.href}
                             onClick={() => setIsMenuOpen(false)}
-                            className="rounded-lg px-3 py-2 text-sm font-semibold text-ink-soft no-underline hover:bg-brand-soft hover:text-brand"
+                            className="rounded-sm px-3 py-2 text-sm font-semibold text-ink-soft no-underline hover:bg-brand-soft hover:text-brand"
                           >
                             {sub.label}
                           </a>
@@ -448,7 +448,7 @@ export function SiteHeader() {
                     key={item.key}
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="inline-flex items-center gap-2 rounded-lg px-4 py-3 text-base font-bold text-ink-soft no-underline transition hover:bg-brand-soft hover:text-brand"
+                    className="inline-flex items-center gap-2 rounded-sm px-4 py-3 text-base font-bold text-ink-soft no-underline transition hover:bg-brand-soft hover:text-brand"
                   >
                     {item.label}
                     {item.key === 'notices' && <Badge variant="new">{t.header.newBadge}</Badge>}

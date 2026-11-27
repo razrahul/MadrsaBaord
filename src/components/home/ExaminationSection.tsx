@@ -46,7 +46,7 @@ export function ExaminationSection({ programs }: ExaminationSectionProps) {
             return (
               <Card
                 key={program.id}
-                className="flex h-full flex-col gap-0 overflow-hidden rounded-lg border border-line/55 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0 transition-colors hover:border-brand/45"
+                className="flex h-full flex-col gap-0 overflow-hidden rounded-sm border border-line/55 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0 transition-colors hover:border-brand/45"
               >
                 <CardHeader className="gap-1.5 border-b border-line/50 bg-surface px-5 pt-4.5 pb-3.5!">
                   <span className="text-xs font-medium text-ink-soft">
@@ -73,7 +73,7 @@ export function ExaminationSection({ programs }: ExaminationSectionProps) {
                       {subjects.map((subject) => (
                         <span
                           key={subject}
-                          className="rounded-sm bg-surface-muted/80 px-2 py-0.5 text-xs font-medium text-ink"
+                          className="rounded-xs bg-surface-muted/80 px-2 py-0.5 text-xs font-medium text-ink"
                         >
                           {subject}
                         </span>
