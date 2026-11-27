@@ -5,7 +5,7 @@ interface SectionWaveProps {
 export function SectionWave({ variant = 'default' }: SectionWaveProps) {
   return (
     <svg
-      className="section-wave-svg"
+      className="pointer-events-none absolute inset-0 h-full w-full"
       viewBox="0 0 1440 220"
       fill="none"
       preserveAspectRatio="none"

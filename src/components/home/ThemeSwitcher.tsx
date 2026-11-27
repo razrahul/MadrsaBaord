@@ -1,6 +1,7 @@
 import { Palette } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { usePreferences, type ThemeId } from '@/app/PreferencesContext'
+import { cn } from '@/lib/utils'
 import { useTranslations } from '@/utils/i18n'
 
 const THEME_SWATCHES: { id: ThemeId; color: string }[] = [
@@ -16,7 +17,6 @@ export function ThemeSwitcher() {
   const { theme, setTheme } = usePreferences()
   const t = useTranslations()
   const [open, setOpen] = useState(false)
-  const [hovered, setHovered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -40,44 +40,15 @@ export function ThemeSwitcher() {
   return (
     <div
       ref={containerRef}
-      style={{
-        position: 'fixed',
-        bottom: '0.85rem',
-        right: '0.85rem',
-        zIndex: 45,
-        fontSize: '0.74rem',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-      }}
+      className="fixed right-3.5 bottom-3.5 z-45 flex flex-col items-end text-xs"
     >
       {open && (
         <div
           role="region"
           aria-label={t.themeSwitcher.heading}
-          style={{
-            marginBottom: '0.4rem',
-            background: 'rgba(255, 255, 255, 0.92)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-            border: '1px solid var(--line)',
-            borderRadius: '0.6rem',
-            padding: '0.45rem',
-            boxShadow: '0 6px 18px rgba(16, 35, 63, 0.1)',
-            minWidth: '10.75rem',
-          }}
+          className="mb-1.5 min-w-44 rounded-lg border border-line bg-white/92 p-2 shadow-[0_6px_18px_rgb(16_35_63_/_10%)] backdrop-blur-md"
         >
-          <p
-            style={{
-              margin: '0 0 0.35rem',
-              padding: '0 0.35rem',
-              fontWeight: 700,
-              fontSize: '0.65rem',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: 'var(--ink-soft)',
-            }}
-          >
+          <p className="m-0 mb-1.5 px-1.5 text-[10px] font-bold tracking-wider text-ink-soft uppercase">
             {t.themeSwitcher.heading}
           </p>
           {THEME_SWATCHES.map((item) => (
@@ -86,32 +57,17 @@ export function ThemeSwitcher() {
               type="button"
               onClick={() => setTheme(item.id)}
               aria-pressed={theme === item.id}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.45rem',
-                width: '100%',
-                padding: '0.32rem 0.45rem',
-                background: theme === item.id ? 'var(--brand-soft)' : 'transparent',
-                border: 'none',
-                borderRadius: '0.35rem',
-                cursor: 'pointer',
-                fontSize: '0.74rem',
-                color: theme === item.id ? 'var(--brand-strong)' : 'var(--ink)',
-                fontWeight: theme === item.id ? 700 : 500,
-              }}
+              className={cn(
+                'flex w-full items-center gap-2 rounded-md border-0 px-2 py-1.5 text-left text-xs transition',
+                theme === item.id
+                  ? 'bg-brand-soft font-bold text-brand-strong'
+                  : 'bg-transparent font-medium text-ink hover:bg-surface-muted'
+              )}
             >
               <span
                 aria-hidden="true"
-                style={{
-                  width: '0.68rem',
-                  height: '0.68rem',
-                  borderRadius: '50%',
-                  background: item.color,
-                  border: '1px solid rgba(0,0,0,0.18)',
-                  display: 'inline-block',
-                  flexShrink: 0,
-                }}
+                className="inline-block size-2.5 shrink-0 rounded-full border border-black/20"
+                style={{ backgroundColor: item.color }}
               />
               {t.themeSwitcher.themes[item.id]}
             </button>
@@ -121,27 +77,12 @@ export function ThemeSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
         aria-label={t.themeSwitcher.heading}
         aria-expanded={open}
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.3rem',
-          padding: '0.3rem 0.55rem',
-          background: open || hovered ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.45)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
-          color: 'var(--ink-soft)',
-          border: '1px solid rgba(16, 35, 63, 0.14)',
-          borderRadius: '0.45rem',
-          cursor: 'pointer',
-          fontSize: '0.7rem',
-          fontWeight: 600,
-          opacity: open || hovered ? 1 : 0.7,
-          transition: 'opacity 0.15s ease, background 0.15s ease',
-        }}
+        className={cn(
+          'inline-flex items-center gap-1.5 rounded-lg border border-ink/15 px-2.5 py-1 text-[11px] font-semibold text-ink-soft backdrop-blur-sm transition hover:bg-white/85 hover:opacity-100',
+          open ? 'bg-white/85 opacity-100' : 'bg-white/45 opacity-70'
+        )}
       >
         <Palette size={13} aria-hidden="true" />
         <span>{t.themeSwitcher.buttonLabel}</span>

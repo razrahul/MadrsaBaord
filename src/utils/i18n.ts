@@ -239,8 +239,8 @@ const translations: Record<Language, SiteTranslations> = {
         designation: "Hon'ble Education Minister, Bihar",
       },
       l3: {
-        name: "Hon'ble Chairman",
-        designation: 'Bihar State Madrasa Education Board',
+        name: 'Janab Salim Parwez',
+        designation: "Hon'ble Chairman\nBihar State Madrasa Education Board",
       },
     },
     updates: {
@@ -539,8 +539,8 @@ const translations: Record<Language, SiteTranslations> = {
         designation: 'माननीय शिक्षा मंत्री, बिहार',
       },
       l3: {
-        name: 'माननीय अध्यक्ष',
-        designation: 'बिहार राज्य मदरसा शिक्षा बोर्ड',
+        name: 'जनाब सलीम परवेज़',
+        designation: 'माननीय अध्यक्ष\nबिहार राज्य मदरसा शिक्षा बोर्ड',
       },
     },
     updates: {
