@@ -121,7 +121,7 @@ export function HeroSection({ slides }: HeroSectionProps) {
               src={s.imageUrl}
               alt={s.imageAlt}
               aria-hidden={i !== current ? true : undefined}
-              className="absolute inset-0 size-full object-cover"
+              className="absolute inset-0 size-full object-cover object-top"
               style={{
                 opacity: i === current ? 1 : 0,
                 transition: reducedMotion ? 'none' : 'opacity 0.4s ease',

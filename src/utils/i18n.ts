@@ -74,7 +74,7 @@ export interface SiteTranslations {
     prevImage: string
     nextImage: string
     albums: Record<
-      'album-convocation' | 'album-training' | 'album-board-meeting' | 'album-library',
+      'album-shatabdi-samaroh' | 'album-convocation' | 'album-training' | 'album-board-meeting',
       { title: string; date: string; captions: string[] }
     >
   }
@@ -182,25 +182,25 @@ const translations: Record<Language, SiteTranslations> = {
     heroSlides: {
       'slide-1': {
         eyebrow: 'Bihar State Madrasa Education Board',
-        title: 'Education that Builds Future Leaders',
+        title: 'Centenary Celebration (Shatabdi Samaroh)',
         description:
-          "Providing quality education and certification across Bihar's madrasa institutions for decades.",
+          "Hon'ble Chief Minister and board dignitaries inaugurating the BSMEB Shatabdi Samaroh — celebrating a century of madrasa education and public service in Bihar.",
         primaryLabel: 'View Latest Updates',
-        secondaryLabel: 'Explore Services',
+        secondaryLabel: 'Online Services',
       },
       'slide-2': {
-        eyebrow: 'Examinations & Certification',
-        title: 'Examinations That Open Every Door',
+        eyebrow: 'Leadership & Institutional Heritage',
+        title: 'Empowering Madrasas Across Bihar',
         description:
-          'Wastania, Fauquania, and Moulvi examinations recognised across academic and professional bodies in India.',
-        primaryLabel: 'Examination Information',
+          "BSMEB Chairman presenting a commemorative citation to the Hon'ble Chief Minister, reaffirming the board's commitment to Wastania, Fauquania, and Moulvi education.",
+        primaryLabel: 'Examination Info',
       },
       'slide-3': {
-        eyebrow: 'Affiliation & Registration',
-        title: 'Supporting Every Affiliated Institution',
+        eyebrow: 'Centenary Souvenir Release',
+        title: '100 Years of Academic Excellence',
         description:
-          'Resources, guidelines, and official support for every madrasa affiliated with the board.',
-        primaryLabel: 'Affiliation Info',
+          'Unveiling of the official BSMEB Shatabdi Samaroh Souvenir on stage, documenting decades of educational milestones and institutional affiliation across Bihar.',
+        primaryLabel: 'Affiliation & Act',
       },
     },
     services: {
@@ -269,6 +269,19 @@ const translations: Record<Language, SiteTranslations> = {
       prevImage: 'Previous image',
       nextImage: 'Next image',
       albums: {
+        'album-shatabdi-samaroh': {
+          title: 'BSMEB Shatabdi Samaroh (Centenary Celebration)',
+          date: 'Centenary Event',
+          captions: [
+            'Thousands of madrasa educators and delegates gathered at the Shatabdi Samaroh auditorium',
+            "Inaugural ceremonial lamp lighting by the Hon'ble Chief Minister and BSMEB Chairman",
+            "Grand floral garland welcome accorded to the Hon'ble Chief Minister and dignitaries",
+            "Presentation of commemorative citation to the Hon'ble Chief Minister on stage",
+            'Official release of the BSMEB Shatabdi Samaroh Centenary Souvenir',
+            'Address from the Bihar State Madrasa Education Board podium',
+            "Hon'ble Chairman Janab Salim Parwez seated on stage at the Shatabdi Samaroh",
+          ],
+        },
         'album-convocation': {
           title: 'Annual Convocation & Award Ceremony',
           date: 'Nov 2026',
@@ -293,14 +306,6 @@ const translations: Record<Language, SiteTranslations> = {
           captions: [
             'Quarterly review of examination and affiliation policies',
             'Board headquarters and administrative block',
-          ],
-        },
-        'album-library': {
-          title: 'Academic & Library Enrichment Drive',
-          date: 'Aug 2026',
-          captions: [
-            'Expanded reference library for Wastania and Moulvi students',
-            'New Urdu, Arabic, and Science textbooks distributed',
           ],
         },
       },
@@ -482,25 +487,25 @@ const translations: Record<Language, SiteTranslations> = {
     heroSlides: {
       'slide-1': {
         eyebrow: 'बिहार राज्य मदरसा शिक्षा बोर्ड',
-        title: 'भविष्य के नेतृत्व का निर्माण करने वाली शिक्षा',
+        title: 'शताब्दी समारोह एवं गौरवशाली यात्रा',
         description:
-          'बिहार के मदरसा संस्थानों में दशकों से गुणवत्तापूर्ण शिक्षा और प्रमाणन प्रदान करना।',
+          'माननीय मुख्यमंत्री एवं बोर्ड के पदाधिकारियों द्वारा बीएसएमईबी शताब्दी समारोह का दीप प्रज्वलन कर उद्घाटन — बिहार में मदरसा शिक्षा के सौ वर्षों की सेवा।',
         primaryLabel: 'नवीनतम सूचनाएँ देखें',
         secondaryLabel: 'ऑनलाइन सेवाएँ',
       },
       'slide-2': {
-        eyebrow: 'परीक्षा एवं प्रमाणपत्र',
-        title: 'हर अवसर के द्वार खोलने वाली परीक्षाएँ',
+        eyebrow: 'नेतृत्व एवं संस्थागत विरासत',
+        title: 'बिहार भर के मदरसों का सशक्तिकरण',
         description:
-          'वस्तानिया, फौकानिया और मौलवी परीक्षाएँ भारत भर के शैक्षणिक और सरकारी संस्थानों द्वारा मान्यता प्राप्त हैं।',
+          'शताब्दी समारोह में माननीय मुख्यमंत्री को सम्मान-पत्र भेंट करते बोर्ड अध्यक्ष — वस्तानिया, फौकानिया और मौलवी शिक्षा के आधुनिकीकरण का संकल्प।',
         primaryLabel: 'परीक्षा जानकारी',
       },
       'slide-3': {
-        eyebrow: 'सम्बद्धता एवं पंजीकरण',
-        title: 'प्रत्येक सम्बद्ध संस्थान के लिए आधिकारिक सहयोग',
+        eyebrow: 'शताब्दी स्मारिका विमोचन',
+        title: 'शैक्षणिक उत्कृष्टता के १०० वर्ष',
         description:
-          'बोर्ड से सम्बद्ध सभी मदरसों के लिए दिशा-निर्देश, संसाधन और संस्थागत सहायता एक स्थान पर।',
-        primaryLabel: 'सम्बद्धता विवरण',
+          'समारोह मंच से बीएसएमईबी शताब्दी समारोह स्मारिका का आधिकारिक विमोचन — दशकों की शैक्षणिक उपलब्धियों, शिक्षक विकास और सम्बद्धता का संकलन।',
+        primaryLabel: 'सम्बद्धता एवं अधिनियम',
       },
     },
     services: {
@@ -569,6 +574,19 @@ const translations: Record<Language, SiteTranslations> = {
       prevImage: 'पिछली तस्वीर',
       nextImage: 'अगली तस्वीर',
       albums: {
+        'album-shatabdi-samaroh': {
+          title: 'बीएसएमईबी शताब्दी समारोह',
+          date: 'शताब्दी कार्यक्रम',
+          captions: [
+            'शताब्दी समारोह सभागार में बड़ी संख्या में उपस्थित मदरसा शिक्षक एवं प्रतिनिधिगण',
+            'माननीय मुख्यमंत्री एवं बोर्ड अध्यक्ष द्वारा दीप प्रज्वलन कर समारोह का शुभारंभ',
+            'मंच पर माननीय मुख्यमंत्री व गणमान्य अतिथियों का विशाल पुष्पमाला से स्वागत',
+            'माननीय मुख्यमंत्री को बोर्ड अध्यक्ष द्वारा सम्मान-पत्र भेंट',
+            'बीएसएमईबी शताब्दी समारोह स्मारिका का आधिकारिक विमोचन',
+            'बिहार राज्य मदरसा शिक्षा बोर्ड के मंच से संबोधन',
+            'शताब्दी समारोह मंच पर आसीन माननीय अध्यक्ष जनाब सलीम परवेज़',
+          ],
+        },
         'album-convocation': {
           title: 'वार्षिक दीक्षांत एवं सम्मान समारोह',
           date: 'नवंबर 2026',
@@ -593,14 +611,6 @@ const translations: Record<Language, SiteTranslations> = {
           captions: [
             'परीक्षा और सम्बद्धता नीतियों की त्रैमासिक समीक्षा',
             'बोर्ड मुख्यालय एवं प्रशासनिक भवन',
-          ],
-        },
-        'album-library': {
-          title: 'शैक्षणिक एवं पुस्तकालय संवर्धन अभियान',
-          date: 'अगस्त 2026',
-          captions: [
-            'वस्तानिया और मौलवी विद्यार्थियों के लिए समृद्ध संदर्भ पुस्तकालय',
-            'उर्दू, अरबी और विज्ञान की नवीन पाठ्यपुस्तकों का वितरण',
           ],
         },
       },

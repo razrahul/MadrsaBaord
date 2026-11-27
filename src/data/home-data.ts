@@ -51,36 +51,39 @@ export const heroSlides: HeroSlide[] = [
   {
     id: 'slide-1',
     imageUrl:
-      'https://images.pexels.com/photos/5905560/pexels-photo-5905560.jpeg?auto=compress&dpr=1&h=750&w=1260',
-    imageAlt: 'Teacher explaining lesson to students in a classroom',
-    eyebrow: 'बिहार राज्य मदरसा शिक्षा बोर्ड',
-    title: 'Education that Builds Future Leaders',
+      'https://images.pexels.com/photos/41296823/pexels-photo-41296823.jpeg?auto=compress&cs=tinysrgb&w=1260',
+    imageAlt:
+      "Inaugural lamp lighting ceremony at the BSMEB Shatabdi Samaroh with the Hon'ble Chief Minister of Bihar and Board Chairman",
+    eyebrow: 'Bihar State Madrasa Education Board',
+    title: 'Centenary Celebration (Shatabdi Samaroh)',
     description:
-      "Providing quality education and certification across Bihar's madrasa institutions for decades.",
+      "Hon'ble Chief Minister and board dignitaries inaugurating the BSMEB Shatabdi Samaroh — celebrating a century of madrasa education and public service in Bihar.",
     primaryAction: { label: 'View Latest Updates', href: '#updates' },
-    secondaryAction: { label: 'Explore Services', href: '#services' },
+    secondaryAction: { label: 'Online Services', href: '#services' },
   },
   {
     id: 'slide-2',
     imageUrl:
-      'https://images.pexels.com/photos/8364026/pexels-photo-8364026.jpeg?auto=compress&dpr=1&h=750&w=1260',
-    imageAlt: 'Students studying together in a library',
-    eyebrow: 'परीक्षा एवं प्रमाणपत्र',
-    title: 'Examinations That Open Every Door',
+      'https://images.pexels.com/photos/41296825/pexels-photo-41296825.jpeg?auto=compress&cs=tinysrgb&w=1260',
+    imageAlt:
+      "BSMEB Chairman and dignitaries presenting a framed commemorative citation to the Hon'ble Chief Minister at the Shatabdi Samaroh",
+    eyebrow: 'Leadership & Institutional Heritage',
+    title: 'Empowering Madrasas Across Bihar',
     description:
-      'Wastania, Fauquania, and Moulvi examinations recognised across academic and professional bodies in India.',
-    primaryAction: { label: 'Examination Information', href: '#examination' },
+      "BSMEB Chairman presenting a commemorative citation to the Hon'ble Chief Minister, reaffirming the board's commitment to Wastania, Fauquania, and Moulvi education.",
+    primaryAction: { label: 'Examination Info', href: '#examination' },
   },
   {
     id: 'slide-3',
     imageUrl:
-      'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&dpr=1&h=750&w=1260',
-    imageAlt: 'Official government education building',
-    eyebrow: 'सम्बद्धता एवं पंजीकरण',
-    title: 'Supporting Every Affiliated Institution',
+      'https://images.pexels.com/photos/41296824/pexels-photo-41296824.jpeg?auto=compress&cs=tinysrgb&w=1260',
+    imageAlt:
+      "Hon'ble Chief Minister, ministers, and BSMEB Chairman releasing the official Shatabdi Samaroh Souvenir on stage",
+    eyebrow: 'Centenary Souvenir Release',
+    title: '100 Years of Academic Excellence',
     description:
-      'Resources, guidelines, and official support for every madrasa affiliated with the board.',
-    primaryAction: { label: 'Affiliation Info', href: '#affiliation' },
+      'Unveiling of the official BSMEB Shatabdi Samaroh Souvenir on stage, documenting decades of educational milestones and institutional affiliation across Bihar.',
+    primaryAction: { label: 'Affiliation & Act', href: '#affiliation' },
   },
 ]
 
@@ -307,6 +310,69 @@ export const leaders: Leader[] = [
 
 export const galleryAlbums: GalleryAlbum[] = [
   {
+    id: 'album-shatabdi-samaroh',
+    title: 'BSMEB Shatabdi Samaroh (Centenary Celebration)',
+    date: 'Centenary Event',
+    images: [
+      {
+        id: 'ss-1',
+        src: 'https://images.pexels.com/photos/41296821/pexels-photo-41296821.jpeg?auto=compress&cs=tinysrgb&w=1000',
+        alt: 'Packed auditorium filled with madrasa teachers, scholars, and delegates attending BSMEB Shatabdi Samaroh',
+        caption: 'Thousands of madrasa educators and delegates gathered at the Shatabdi Samaroh auditorium',
+        width: 1000,
+        height: 667,
+      },
+      {
+        id: 'ss-2',
+        src: 'https://images.pexels.com/photos/41296823/pexels-photo-41296823.jpeg?auto=compress&cs=tinysrgb&w=1000',
+        alt: "Ceremonial lamp lighting by the Hon'ble Chief Minister, Board Chairman Janab Salim Parwez, and dignitaries",
+        caption: "Inaugural ceremonial lamp lighting by the Hon'ble Chief Minister and BSMEB Chairman",
+        width: 1000,
+        height: 667,
+      },
+      {
+        id: 'ss-3',
+        src: 'https://images.pexels.com/photos/41296818/pexels-photo-41296818.jpeg?auto=compress&cs=tinysrgb&w=1000',
+        alt: "Grand floral garland welcome of the Hon'ble Chief Minister, ministers, and BSMEB Chairman on stage",
+        caption: "Grand floral garland welcome accorded to the Hon'ble Chief Minister and dignitaries",
+        width: 1000,
+        height: 667,
+      },
+      {
+        id: 'ss-4',
+        src: 'https://images.pexels.com/photos/41296825/pexels-photo-41296825.jpeg?auto=compress&cs=tinysrgb&w=1000',
+        alt: "Board Chairman Janab Salim Parwez presenting a framed commemorative citation to the Hon'ble Chief Minister",
+        caption: "Presentation of commemorative citation to the Hon'ble Chief Minister on stage",
+        width: 1000,
+        height: 667,
+      },
+      {
+        id: 'ss-5',
+        src: 'https://images.pexels.com/photos/41296824/pexels-photo-41296824.jpeg?auto=compress&cs=tinysrgb&w=1000',
+        alt: "Unveiling of the official BSMEB Shatabdi Samaroh Souvenir by the Hon'ble Chief Minister and dignitaries",
+        caption: 'Official release of the BSMEB Shatabdi Samaroh Centenary Souvenir',
+        width: 1000,
+        height: 667,
+      },
+      {
+        id: 'ss-6',
+        src: 'https://images.pexels.com/photos/41296822/pexels-photo-41296822.jpeg?auto=compress&cs=tinysrgb&w=1000',
+        alt: 'Scholar delivering an address from the flower-decorated BSMEB podium during Shatabdi Samaroh',
+        caption: 'Address from the Bihar State Madrasa Education Board podium',
+        width: 1000,
+        height: 667,
+      },
+      {
+        id: 'ss-7',
+        src: 'https://images.pexels.com/photos/41296820/pexels-photo-41296820.jpeg?auto=compress&cs=tinysrgb&w=1000',
+        alt: 'BSMEB Chairman Janab Salim Parwez seated on the dais during the Shatabdi Samaroh',
+        caption: "Hon'ble Chairman Janab Salim Parwez seated on stage at the Shatabdi Samaroh",
+        width: 667,
+        height: 1000,
+      },
+    ],
+  },
+  {
     id: 'album-convocation',
     title: 'Annual Convocation & Award Ceremony',
     date: 'Nov 2026',
@@ -386,29 +452,6 @@ export const galleryAlbums: GalleryAlbum[] = [
         src: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&h=600&w=800',
         alt: 'BSMEB administrative campus view',
         caption: 'Board headquarters and administrative block',
-        width: 800,
-        height: 600,
-      },
-    ],
-  },
-  {
-    id: 'album-library',
-    title: 'Academic & Library Enrichment Drive',
-    date: 'Aug 2026',
-    images: [
-      {
-        id: 'lb-1',
-        src: 'https://images.pexels.com/photos/8364026/pexels-photo-8364026.jpeg?auto=compress&h=600&w=800',
-        alt: 'Students studying together in a madrasa library',
-        caption: 'Expanded reference library for Wastania and Moulvi students',
-        width: 800,
-        height: 600,
-      },
-      {
-        id: 'lb-2',
-        src: 'https://images.pexels.com/photos/5905555/pexels-photo-5905555.jpeg?auto=compress&h=600&w=800',
-        alt: 'Classroom reading session',
-        caption: 'New Urdu, Arabic, and Science textbooks distributed',
         width: 800,
         height: 600,
       },

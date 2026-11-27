@@ -160,7 +160,7 @@ export function GallerySection({ albums }: GallerySectionProps) {
 
             <img
               src={currentImage.src}
-              alt={currentImage.alt}
+              alt={currentCaption ?? currentImage.alt}
               className="max-h-[72vh] max-w-[88vw] rounded-sm object-contain"
             />
 
