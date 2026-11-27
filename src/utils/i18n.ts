@@ -57,7 +57,8 @@ export interface SiteTranslations {
     title: string
     pause: string
     play: string
-    hoverToPause: string
+    viewArchive: string
+    officialCount: (count: number, catLabel: string) => string
     newBadge: string
     categories: Record<UpdateCategory, string>
     emptyTitle: (catLabel: string) => string
@@ -246,7 +247,8 @@ const translations: Record<Language, SiteTranslations> = {
       title: 'Notice Board',
       pause: 'Pause',
       play: 'Play',
-      hoverToPause: 'Hover to pause',
+      viewArchive: 'View Archive',
+      officialCount: (count, cat) => `${count} Official ${cat}`,
       newBadge: 'NEW',
       categories: {
         Notices: 'Notices',
@@ -545,7 +547,8 @@ const translations: Record<Language, SiteTranslations> = {
       title: 'सूचना पट्ट',
       pause: 'रोकें',
       play: 'चलाएँ',
-      hoverToPause: 'रोकने के लिए कर्सर रखें',
+      viewArchive: 'संग्रह देखें',
+      officialCount: (count, cat) => `${count} आधिकारिक ${cat}`,
       newBadge: 'नया',
       categories: {
         Notices: 'सूचनाएँ',
