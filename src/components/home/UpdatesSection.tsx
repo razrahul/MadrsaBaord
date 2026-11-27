@@ -1,19 +1,18 @@
-import { Bell, ExternalLink, Pause, Play } from 'lucide-react'
+import { ArrowRight, FileText, Pause, Play } from 'lucide-react'
 import { useState } from 'react'
 import { usePreferences } from '@/app/PreferencesContext'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { updateCategories } from '@/data/home-data'
 import type { BoardUpdate, UpdateCategory } from '@/types/home'
 import { useTranslations } from '@/utils/i18n'
 
-function formatDate(iso: string, locale: 'en' | 'hi'): string {
-  return new Date(iso).toLocaleDateString(locale === 'hi' ? 'hi-IN' : 'en-IN', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  })
+function splitDate(iso: string, locale: 'en' | 'hi'): { day: string; monthYear: string } {
+  const date = new Date(iso)
+  const loc = locale === 'hi' ? 'hi-IN' : 'en-IN'
+  const day = date.toLocaleDateString(loc, { day: '2-digit' })
+  const monthYear = date.toLocaleDateString(loc, { month: 'short', year: 'numeric' })
+  return { day, monthYear }
 }
 
 const langLabel: Record<BoardUpdate['language'], string> = {
@@ -39,8 +38,13 @@ export function UpdatesSection({
   const filtered = updates.filter((u) => u.category === activeCategory)
   const activeCategoryLabel = t.updates.categories[activeCategory]
 
+  const countByCategory = (cat: UpdateCategory) =>
+    updates.filter((u) => u.category === cat).length
+
   const renderUpdateRow = (item: BoardUpdate, keySuffix = '') => {
     const title = language === 'hi' ? (item.titleHi ?? item.title) : (item.titleEn ?? item.title)
+    const { day, monthYear } = splitDate(item.publishedAt, language)
+
     return (
       <li key={`${item.id}${keySuffix}`} className="notice-item">
         <a
@@ -48,32 +52,30 @@ export function UpdatesSection({
           href={item.documentUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${title} (${formatDate(item.publishedAt, language)})`}
+          aria-label={`${title} (${day} ${monthYear})`}
         >
-          <div className="notice-row-main">
-            <div className="notice-item-title">
-              {item.isNew && (
-                <Badge variant={item.category === 'Notices' ? 'hot' : 'new'}>
-                  {t.updates.newBadge}
-                </Badge>
-              )}
-              <span>{title}</span>
-            </div>
-            <div className="notice-row-meta">
-              <span>{formatDate(item.publishedAt, language)}</span>
-              <span aria-hidden="true">·</span>
-              <span>{langLabel[item.language]}</span>
-              {item.fileType && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  <span className="notice-filetype">{item.fileType}</span>
-                </>
-              )}
-            </div>
+          <div className="notice-date-col" aria-hidden="true">
+            <span className="notice-date-day">{day}</span>
+            <span className="notice-date-my">{monthYear}</span>
           </div>
-          <span className="notice-view-icon" aria-hidden="true">
-            <ExternalLink size={14} />
-          </span>
+
+          <div className="notice-row-main">
+            <span className="notice-item-title">{title}</span>
+            {item.isNew && (
+              <span className="notice-new-indicator">
+                <span className="notice-new-dot" aria-hidden="true" />
+                {t.updates.newBadge}
+              </span>
+            )}
+          </div>
+
+          <div className="notice-row-actions">
+            <span className="notice-lang-chip">{langLabel[item.language]}</span>
+            <span className="notice-file-cta">
+              <FileText size={14} aria-hidden="true" />
+              <span>{item.fileType ?? 'PDF'}</span>
+            </span>
+          </div>
         </a>
       </li>
     )
@@ -89,13 +91,11 @@ export function UpdatesSection({
         <Card className="notice-board-card">
           <CardHeader className="notice-board-header">
             <div className="notice-board-title-row">
-              <div className="notice-board-heading">
-                <span className="notice-board-icon" aria-hidden="true">
-                  <Bell size={16} />
-                </span>
+              <div className="notice-board-title-wrap">
                 <CardTitle id="updates-title" className="notice-board-title">
                   {t.updates.title}
                 </CardTitle>
+                <span className="notice-title-rule" aria-hidden="true" />
               </div>
 
               <button
@@ -117,7 +117,8 @@ export function UpdatesSection({
             <TabsList variant="line" className="update-tabs" aria-label={t.updates.title}>
               {updateCategories.map((category) => (
                 <TabsTrigger key={category} value={category} className="update-tab-trigger">
-                  {t.updates.categories[category]}
+                  <span>{t.updates.categories[category]}</span>
+                  <span className="update-tab-count">({countByCategory(category)})</span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -147,10 +148,11 @@ export function UpdatesSection({
           </CardContent>
 
           <CardFooter className="notice-board-footer">
-            <span>
-              {filtered.length} {activeCategoryLabel}
-            </span>
-            <span>{t.updates.hoverToPause}</span>
+            <span>{t.updates.officialCount(filtered.length, activeCategoryLabel)}</span>
+            <a href="#updates" className="notice-archive-link">
+              <span>{t.updates.viewArchive}</span>
+              <ArrowRight size={13} aria-hidden="true" />
+            </a>
           </CardFooter>
         </Card>
       </Tabs>
