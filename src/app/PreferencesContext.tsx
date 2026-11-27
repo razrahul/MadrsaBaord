@@ -29,6 +29,15 @@ const VALID_THEMES: readonly ThemeId[] = [
   'chaiui',
 ]
 
+const THEME_META_COLORS: Record<ThemeId, string> = {
+  'navy-saffron': '#0d2c54',
+  'maroon-gold': '#4f1823',
+  'royal-blue-teal': '#113963',
+  'emerald-sage': '#0c4630',
+  'clean-white': '#0f172a',
+  chaiui: '#78350f',
+}
+
 function clampFontStep(value: number): number {
   return Math.max(MIN_FONT_STEP, Math.min(MAX_FONT_STEP, value))
 }
@@ -111,12 +120,16 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem(STORAGE_KEYS.fontStep, String(state.fontStep))
   }, [state.fontStep])
 
-  // Sync theme attribute to <html> and localStorage
+  // Sync theme attribute, meta theme-color, and localStorage
   useEffect(() => {
     if (state.theme === 'navy-saffron') {
       document.documentElement.removeAttribute('data-theme')
     } else {
       document.documentElement.setAttribute('data-theme', state.theme)
+    }
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]')
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', THEME_META_COLORS[state.theme])
     }
     window.localStorage.setItem(STORAGE_KEYS.theme, state.theme)
   }, [state.theme])

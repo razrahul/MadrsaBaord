@@ -3,49 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
     <title>Bihar State Madrasa Education Board (BSMEB) | बिहार राज्य मदरसा शिक्षा बोर्ड</title>
     <meta
       name="description"
       content="Official public information portal of the Bihar State Madrasa Education Board (BSMEB), Patna, Government of Bihar — Notices, Tenders, Proformas, Examinations (Wastania, Fauquania, Moulvi), Results, and Affiliation."
     />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0d2c54" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:locale:alternate" content="hi_IN" />
+    <meta property="og:site_name" content="Bihar State Madrasa Education Board (BSMEB)" />
     <meta property="og:title" content="Bihar State Madrasa Education Board (BSMEB)" />
     <meta
       property="og:description"
       content="Official portal for notices, tenders, examinations (Wastania, Fauquania, Moulvi), results, and affiliated madrasa resources in Bihar."
     />
     <meta property="og:image" content="/favicon.png" />
+
+    <!-- Icons & Above-the-fold Brand Emblem -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="preload" as="image" href="/logo.png" />
+
+    <!-- Pre-hydration Preferences Sync (Theme, Font Step, Language) -->
     <script>
       ;(function () {
         try {
           var root = document.documentElement
+          var themeColors = {
+            'navy-saffron': '#0d2c54',
+            'maroon-gold': '#4f1823',
+            'royal-blue-teal': '#113963',
+            'emerald-sage': '#0c4630',
+            'clean-white': '#0f172a',
+            chaiui: '#78350f',
+          }
+
           var theme = localStorage.getItem('bsmeb-theme')
-          var validThemes = [
-            'maroon-gold',
-            'royal-blue-teal',
-            'emerald-sage',
-            'clean-white',
-            'chaiui',
-          ]
-          if (theme && validThemes.indexOf(theme) !== -1) {
+          if (theme && theme !== 'navy-saffron' && Object.prototype.hasOwnProperty.call(themeColors, theme)) {
             root.setAttribute('data-theme', theme)
           }
+
+          var metaTheme = document.querySelector('meta[name="theme-color"]')
+          if (metaTheme && theme && Object.prototype.hasOwnProperty.call(themeColors, theme)) {
+            metaTheme.setAttribute('content', themeColors[theme])
+          }
+
           var step = Number(localStorage.getItem('bsmeb-font-step'))
           if (Number.isFinite(step) && step >= -2 && step <= 2) {
             root.style.fontSize = 16 + step + 'px'
           }
+
           var lang = localStorage.getItem('bsmeb-language')
-          if (lang === 'hi' || lang === 'en') {
-            root.lang = lang
+          if (lang === 'hi') {
+            root.lang = 'hi'
+            document.title = 'बिहार राज्य मदरसा शिक्षा बोर्ड (BSMEB) | बिहार सरकार'
+          } else if (lang === 'en') {
+            root.lang = 'en'
+            document.title = 'Bihar State Madrasa Education Board (BSMEB) | Government of Bihar'
           }
         } catch (e) {}
       })()
     </script>
   </head>
   <body>
+    <noscript>
+      <div style="padding:1.25rem;font-family:system-ui,sans-serif;text-align:center;background:#f6f3ed;color:#10233f;border-bottom:1px solid #d9e0e8;">
+        <strong>Bihar State Madrasa Education Board (BSMEB), Patna</strong> — Please enable JavaScript in your browser to view this portal.
+        <br />
+        <span>बिहार राज्य मदरसा शिक्षा बोर्ड (BSMEB), पटना — इस पोर्टल को देखने के लिए कृपया अपने ब्राउज़र में JavaScript सक्षम करें।</span>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,16 +1,14 @@
 import { useState } from 'react'
-import { HeroSection } from '@/components/home/HeroSection'
-import { ServicesSection } from '@/components/home/ServicesSection'
-import { UpdatesSection } from '@/components/home/UpdatesSection'
-import { LeadershipSection } from '@/components/home/LeadershipSection'
-// import { StatsSection } from '@/components/home/StatsSection'
-import { GallerySection } from '@/components/home/GallerySection'
-import { ExaminationSection } from '@/components/home/ExaminationSection'
 import { AffiliationSection } from '@/components/home/AffiliationSection'
+import { ExaminationSection } from '@/components/home/ExaminationSection'
+import { GallerySection } from '@/components/home/GallerySection'
+import { HeroSection } from '@/components/home/HeroSection'
+import { LeadershipSection } from '@/components/home/LeadershipSection'
+import { ServicesSection } from '@/components/home/ServicesSection'
 import { ThemeSwitcher } from '@/components/home/ThemeSwitcher'
+import { UpdatesSection } from '@/components/home/UpdatesSection'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SiteHeader } from '@/components/layout/SiteHeader'
-import type { UpdateCategory } from '@/types/home'
 import {
   boardUpdates,
   examPrograms,
@@ -18,20 +16,23 @@ import {
   heroSlides,
   leaders,
   serviceItems,
-  // statItems,
 } from '@/data/home-data'
+import type { UpdateCategory } from '@/types/home'
 
 export function HomeContainer() {
   const [activeCategory, setActiveCategory] = useState<UpdateCategory>('Notices')
 
   return (
-    <div className="app-page">
+    <div className="min-h-screen bg-canvas text-ink">
       <SiteHeader />
       <main id="main-content">
         <HeroSection slides={heroSlides} />
         <ServicesSection services={serviceItems} />
-        <section className="content-section leadership-updates-section" aria-label="Board leadership and public updates">
-          <div className="site-shell leadership-updates-grid">
+        <section
+          className="bg-surface-muted py-6"
+          aria-label="Board leadership and public updates"
+        >
+          <div className="site-shell grid grid-cols-1 items-center gap-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
             <LeadershipSection leaders={leaders} />
             <UpdatesSection
               updates={boardUpdates}
@@ -40,7 +41,6 @@ export function HomeContainer() {
             />
           </div>
         </section>
-        {/* <StatsSection stats={statItems} /> */}
         <GallerySection albums={galleryAlbums} />
         <ExaminationSection programs={examPrograms} />
         <AffiliationSection />

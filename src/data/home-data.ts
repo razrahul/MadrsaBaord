@@ -297,8 +297,8 @@ export const leaders: Leader[] = [
   },
   {
     id: 'l3',
-    name: "Hon'ble Chairman",
-    designation: 'Bihar State Madrasa Education Board',
+    name: 'Janab Salim Parwez',
+    designation: "Hon'ble Chairman\nBihar State Madrasa Education Board",
     imageUrl:
       'https://bsmeb2.techprotocol.in/public//wakfboard/img/team/Chairman_BSMEB.png',
     displayOrder: 3,

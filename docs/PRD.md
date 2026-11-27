@@ -311,6 +311,15 @@ All official content requires a source/owner before production publishing. Place
 - Updated `ThemeSwitcher.tsx` into a production-ready `Display Theme` control with `localStorage` persistence supporting 6 themes: Navy/Saffron, Maroon/Gold, Royal Blue/Teal, Green/Light Green (`emerald-sage`), White/Slate (`clean-white`), and Warm Amber (`chaiui`).
 - Verified `pnpm run build` and `pnpm run lint` pass with 0 errors.
 
+### 27 November 2026 — Production Tailwind v4 + Shadcn/Base-UI + i18n architecture refactor
+
+- Added `src/app/PreferencesContext.tsx` (`useReducer` + `localStorage` + DOM sync) and `src/app/providers.tsx` to centrally manage `language` (`en` / `hi`), 2-step `fontStep` (`14px`–`18px`), and `theme` across the entire portal, backed by a synchronous zero-FOUC pre-hydration script in `index.html` and white-backed `public/favicon.png`.
+- Added `src/utils/i18n.ts` for full bilingual English & Hindi content switching across header, sub-navigation, hero, services, leadership, minimalist ledger-style `UpdatesSection`, gallery albums, examination cards, affiliation cards, footer, and theme switcher.
+- Exposed all BSMEB semantic design tokens (`--color-brand`, `--color-brand-strong`, `--color-brand-soft`, `--color-surface`, `--color-surface-muted`, `--color-ink`, `--color-ink-soft`, `--color-line`, `--color-accent`, `--font-sans`, `--font-serif`) in `src/styles/theme.css` `@theme inline`.
+- Built `src/components/ui/dialog.tsx` on `@base-ui/react/dialog` and migrated `GallerySection.tsx` lightbox to it for proper focus trapping, scroll locking, and Escape/backdrop dismissal.
+- Migrated all layout and section components (`SiteHeader`, `HeroSection`, `ServicesSection`, `LeadershipSection`, `UpdatesSection`, `GallerySection`, `ExaminationSection`, `AffiliationSection`, `SiteFooter`, `ThemeSwitcher`, `SectionHeading`, `SectionWave`, `HomeContainer`) to Tailwind CSS v4 utilities and Shadcn/ChaiUI primitives, shrinking `src/styles/globals.css` from ~2,040 lines of unlayered CSS down to ~115 lines of `@layer base` resets, `.site-shell`, `.skip-link`, and marquee/scroll `@keyframes`.
+- Verified `pnpm run build` and `pnpm run lint` pass with 0 errors.
+
 ### Next implementation step
 
 - Replace placeholder leader names, images, contact details, and official URLs with approved board content.
