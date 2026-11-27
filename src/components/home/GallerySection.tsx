@@ -84,11 +84,11 @@ export function GallerySection({ albums }: GallerySectionProps) {
                 <button
                   key={album.id}
                   type="button"
-                  className="group block w-full rounded-lg border-0 bg-transparent p-0 text-left"
+                  className="group block w-full rounded-sm border-0 bg-transparent p-0 text-left"
                   onClick={() => openAlbum(idx)}
                   aria-label={`${t.gallery.openAlbum}: ${albumTitle} (${album.images.length} ${t.gallery.photosWord})`}
                 >
-                  <Card className="flex h-full flex-col gap-0 overflow-hidden rounded-lg border border-line/55 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0 transition-colors duration-200 group-hover:border-brand/45 group-focus-visible:border-brand/45">
+                  <Card className="flex h-full flex-col gap-0 overflow-hidden rounded-sm border border-line/55 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0 transition-colors duration-200 group-hover:border-brand/45 group-focus-visible:border-brand/45">
                     <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-muted">
                       <img
                         src={cover.src}
@@ -100,7 +100,7 @@ export function GallerySection({ albums }: GallerySectionProps) {
                       />
                       <Badge
                         variant="overlay"
-                        className="absolute top-2.5 right-2.5 rounded-sm border border-white/15 bg-brand-strong/85 text-white"
+                        className="absolute top-2.5 right-2.5 rounded-xs border border-white/15 bg-brand-strong/85 text-white"
                       >
                         <Images size={12} aria-hidden="true" />
                         {album.images.length} {t.gallery.photosWord}
@@ -161,7 +161,7 @@ export function GallerySection({ albums }: GallerySectionProps) {
             <img
               src={currentImage.src}
               alt={currentImage.alt}
-              className="max-h-[72vh] max-w-[88vw] rounded-xl object-contain"
+              className="max-h-[72vh] max-w-[88vw] rounded-sm object-contain"
             />
 
             <div className="mt-3.5 text-center">

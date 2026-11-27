@@ -15,7 +15,7 @@ export function SiteFooter() {
           <img
             src="/logo.png"
             alt={t.brand.primaryName}
-            className="size-13 shrink-0 rounded-md bg-white p-0.5 object-contain"
+            className="size-13 shrink-0 rounded-sm bg-white p-0.5 object-contain"
           />
           <div className="flex flex-col">
             <p className="mb-0.5 text-xs font-medium text-white/75">
@@ -38,7 +38,7 @@ export function SiteFooter() {
                   <a
                     key={social.id}
                     href={social.href}
-                    className="inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-semibold text-white no-underline transition hover:border-white/35 hover:bg-white/20"
+                    className="inline-flex items-center gap-1.5 rounded-sm border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-semibold text-white no-underline transition hover:border-white/35 hover:bg-white/20"
                     aria-label={label}
                     target="_blank"
                     rel="noopener noreferrer"
