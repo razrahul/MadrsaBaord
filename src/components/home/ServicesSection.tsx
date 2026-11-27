@@ -2,12 +2,15 @@ import type { LucideIcon } from 'lucide-react'
 import { SectionWave } from '@/components/common/SectionWave'
 import { Card, CardContent } from '@/components/ui/card'
 import type { ServiceItem } from '@/types/home'
+import { useTranslations } from '@/utils/i18n'
 
 interface ServicesSectionProps {
   services: ServiceItem[]
 }
 
 export function ServicesSection({ services }: ServicesSectionProps) {
+  const t = useTranslations()
+
   return (
     <section
       id="services"
@@ -15,7 +18,7 @@ export function ServicesSection({ services }: ServicesSectionProps) {
       aria-labelledby="services-title"
     >
       <h2 id="services-title" className="sr-only">
-        Online services
+        {t.services.srHeading}
       </h2>
 
       <SectionWave />
@@ -24,12 +27,16 @@ export function ServicesSection({ services }: ServicesSectionProps) {
         <div className="service-tiles">
           {services.map((service) => {
             const Icon = service.icon as LucideIcon
+            const localized = t.services.items[service.id as keyof typeof t.services.items]
+            const title = localized?.title ?? service.title
+            const description = localized?.description ?? service.description
+
             return (
               <a
                 key={service.id}
                 href={service.href}
                 className="service-tile-link"
-                title={service.isLive ? service.description : `${service.title} — Coming soon`}
+                title={service.isLive ? description : `${title} — ${t.services.comingSoonSuffix}`}
                 {...(service.isExternal && service.isLive
                   ? { target: '_blank', rel: 'noopener noreferrer' }
                   : {})}
@@ -39,7 +46,7 @@ export function ServicesSection({ services }: ServicesSectionProps) {
                     <span className="service-tile-icon">
                       <Icon aria-hidden="true" size={48} strokeWidth={1.6} />
                     </span>
-                    <span className="service-tile-title">{service.title}</span>
+                    <span className="service-tile-title">{title}</span>
                   </CardContent>
                 </Card>
               </a>

@@ -4,6 +4,7 @@ import { SectionWave } from '@/components/common/SectionWave'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import type { GalleryAlbum } from '@/types/home'
+import { useTranslations } from '@/utils/i18n'
 import { SectionHeading } from './SectionHeading'
 
 interface GallerySectionProps {
@@ -16,12 +17,16 @@ interface ModalState {
 }
 
 export function GallerySection({ albums }: GallerySectionProps) {
+  const t = useTranslations()
   const [modal, setModal] = useState<ModalState>({ albumIndex: null, imageIndex: 0 })
   const closeRef = useRef<HTMLButtonElement>(null)
 
   const activeAlbum = modal.albumIndex !== null ? albums[modal.albumIndex] : null
   const activeImages = activeAlbum ? activeAlbum.images : []
   const currentImage = activeImages[modal.imageIndex]
+
+  const getAlbumText = (album: GalleryAlbum) =>
+    t.gallery.albums[album.id as keyof typeof t.gallery.albums]
 
   const openAlbum = (albumIndex: number) => setModal({ albumIndex, imageIndex: 0 })
   const closeModal = () => setModal({ albumIndex: null, imageIndex: 0 })
@@ -52,6 +57,11 @@ export function GallerySection({ albums }: GallerySectionProps) {
     return () => document.removeEventListener('keydown', handler)
   }, [modal.albumIndex, goTo])
 
+  const activeAlbumText = activeAlbum ? getAlbumText(activeAlbum) : undefined
+  const activeAlbumTitle = activeAlbumText?.title ?? activeAlbum?.title
+  const currentCaption =
+    activeAlbumText?.captions[modal.imageIndex] ?? currentImage?.caption
+
   return (
     <>
       <section
@@ -63,22 +73,26 @@ export function GallerySection({ albums }: GallerySectionProps) {
         <div className="site-shell section-wave-content">
           <SectionHeading
             id="gallery-title"
-            eyebrow="Activities & Gallery"
-            title="Programmes & Event Albums"
-            description="Select any programme folder to view its photographs."
+            eyebrow={t.gallery.eyebrow}
+            title={t.gallery.title}
+            description={t.gallery.description}
           />
 
           <div className="gallery-albums-grid">
             {albums.map((album, idx) => {
               const cover = album.images[0]
               if (!cover) return null
+              const localized = getAlbumText(album)
+              const albumTitle = localized?.title ?? album.title
+              const albumDate = localized?.date ?? album.date
+
               return (
                 <button
                   key={album.id}
                   type="button"
                   className="gallery-album-trigger"
                   onClick={() => openAlbum(idx)}
-                  aria-label={`Open ${album.title} album (${album.images.length} photos)`}
+                  aria-label={`${t.gallery.openAlbum}: ${albumTitle} (${album.images.length} ${t.gallery.photosWord})`}
                 >
                   <Card className="gallery-album-card">
                     <div className="gallery-album-thumb">
@@ -91,17 +105,17 @@ export function GallerySection({ albums }: GallerySectionProps) {
                       />
                       <Badge variant="overlay" className="gallery-album-count">
                         <Images size={12} aria-hidden="true" />
-                        {album.images.length} Photos
+                        {album.images.length} {t.gallery.photosWord}
                       </Badge>
                       <span className="gallery-album-hover" aria-hidden="true">
                         <FolderOpen size={24} />
-                        <span>Open Album</span>
+                        <span>{t.gallery.openAlbum}</span>
                       </span>
                     </div>
 
                     <CardContent className="gallery-album-meta">
-                      <h3 className="gallery-album-title">{album.title}</h3>
-                      {album.date && <span className="gallery-album-date">{album.date}</span>}
+                      <h3 className="gallery-album-title">{albumTitle}</h3>
+                      {albumDate && <span className="gallery-album-date">{albumDate}</span>}
                     </CardContent>
                   </Card>
                 </button>
@@ -116,19 +130,19 @@ export function GallerySection({ albums }: GallerySectionProps) {
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`${activeAlbum.title} image viewer`}
+          aria-label={activeAlbumTitle}
           className="gallery-modal-backdrop"
         >
           <div className="gallery-modal-topbar">
             <div className="gallery-modal-heading">
               <FolderOpen size={18} aria-hidden="true" />
-              <span>{activeAlbum.title}</span>
+              <span>{activeAlbumTitle}</span>
             </div>
             <button
               ref={closeRef}
               type="button"
               onClick={closeModal}
-              aria-label="Close image viewer"
+              aria-label={t.gallery.closeViewer}
               className="gallery-modal-close"
             >
               <X aria-hidden="true" size={20} />
@@ -139,7 +153,7 @@ export function GallerySection({ albums }: GallerySectionProps) {
             <button
               type="button"
               onClick={() => goTo(-1)}
-              aria-label="Previous image"
+              aria-label={t.gallery.prevImage}
               className="gallery-modal-nav gallery-modal-nav--prev"
             >
               <ChevronLeft aria-hidden="true" />
@@ -153,9 +167,7 @@ export function GallerySection({ albums }: GallerySectionProps) {
           />
 
           <div className="gallery-modal-footer">
-            {currentImage.caption && (
-              <p className="gallery-modal-caption">{currentImage.caption}</p>
-            )}
+            {currentCaption && <p className="gallery-modal-caption">{currentCaption}</p>}
             <p aria-live="polite" className="gallery-modal-counter">
               {modal.imageIndex + 1} / {activeImages.length}
             </p>
@@ -165,7 +177,7 @@ export function GallerySection({ albums }: GallerySectionProps) {
             <button
               type="button"
               onClick={() => goTo(1)}
-              aria-label="Next image"
+              aria-label={t.gallery.nextImage}
               className="gallery-modal-nav gallery-modal-nav--next"
             >
               <ChevronRight aria-hidden="true" />

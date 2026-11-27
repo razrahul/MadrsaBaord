@@ -1,8 +1,20 @@
 import type { LucideIcon } from 'lucide-react'
 
+export interface NavigationSubItem {
+  label: string
+  href: string
+}
+
 export interface NavigationItem {
   label: string
   href: string
+  summary?: {
+    title: string
+    description: string
+    href: string
+    cta: string
+  }
+  children?: NavigationSubItem[]
 }
 
 export interface ServiceItem {
@@ -21,6 +33,8 @@ export interface BoardUpdate {
   id: string
   category: UpdateCategory
   title: string
+  titleEn?: string
+  titleHi?: string
   publishedAt: string // ISO 8601
   documentUrl: string
   language: 'hi' | 'en' | 'ur'

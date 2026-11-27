@@ -1,113 +1,119 @@
 import { Palette } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { usePreferences, type ThemeId } from '@/app/PreferencesContext'
+import { useTranslations } from '@/utils/i18n'
 
-const STORAGE_KEY = 'bsmeb-theme'
-
-const themes = [
-  { id: 'navy-saffron', label: 'Navy / Saffron', color: '#163f73' },
-  { id: 'maroon-gold', label: 'Maroon / Gold', color: '#6f2634' },
-  { id: 'royal-blue-teal', label: 'Royal Blue / Teal', color: '#1c4e89' },
-  { id: 'emerald-sage', label: 'Green / Light Green', color: '#156547' },
-  { id: 'clean-white', label: 'White / Slate', color: '#f1f5f9' },
-  { id: 'chaiui', label: 'Warm Amber', color: '#b45309' },
+const THEME_SWATCHES: { id: ThemeId; color: string }[] = [
+  { id: 'navy-saffron', color: '#163f73' },
+  { id: 'maroon-gold', color: '#6f2634' },
+  { id: 'royal-blue-teal', color: '#1c4e89' },
+  { id: 'emerald-sage', color: '#156547' },
+  { id: 'clean-white', color: '#f1f5f9' },
+  { id: 'chaiui', color: '#b45309' },
 ]
 
-function applyThemeAttribute(id: string) {
-  if (id === 'navy-saffron') {
-    document.documentElement.removeAttribute('data-theme')
-  } else {
-    document.documentElement.setAttribute('data-theme', id)
-  }
-}
-
 export function ThemeSwitcher() {
-  const [active, setActive] = useState(() => {
-    if (typeof window === 'undefined') return 'navy-saffron'
-    return window.localStorage.getItem(STORAGE_KEY) || 'navy-saffron'
-  })
+  const { theme, setTheme } = usePreferences()
+  const t = useTranslations()
   const [open, setOpen] = useState(false)
+  const [hovered, setHovered] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    applyThemeAttribute(active)
-  }, [active])
-
-  const apply = (id: string) => {
-    setActive(id)
-    applyThemeAttribute(id)
-    window.localStorage.setItem(STORAGE_KEY, id)
-  }
+    if (!open) return
+    const handleOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false)
+      }
+    }
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('mousedown', handleOutside)
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('mousedown', handleOutside)
+      document.removeEventListener('keydown', handleKey)
+    }
+  }, [open])
 
   return (
     <div
+      ref={containerRef}
       style={{
         position: 'fixed',
-        bottom: '1.25rem',
-        right: '1.25rem',
+        bottom: '0.85rem',
+        right: '0.85rem',
         zIndex: 45,
-        fontSize: '0.8rem',
+        fontSize: '0.74rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
       }}
     >
       {open && (
         <div
           role="region"
-          aria-label="Portal appearance options"
+          aria-label={t.themeSwitcher.heading}
           style={{
-            marginBottom: '0.5rem',
-            background: 'var(--surface)',
+            marginBottom: '0.4rem',
+            background: 'rgba(255, 255, 255, 0.92)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
             border: '1px solid var(--line)',
-            borderRadius: 'var(--radius-sm)',
-            padding: '0.65rem',
-            boxShadow: 'var(--shadow-sm)',
-            minWidth: '12.5rem',
+            borderRadius: '0.6rem',
+            padding: '0.45rem',
+            boxShadow: '0 6px 18px rgba(16, 35, 63, 0.1)',
+            minWidth: '10.75rem',
           }}
         >
           <p
             style={{
-              margin: '0 0 0.45rem',
+              margin: '0 0 0.35rem',
               padding: '0 0.35rem',
               fontWeight: 700,
-              fontSize: '0.7rem',
+              fontSize: '0.65rem',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: 'var(--ink-soft)',
             }}
           >
-            Display Theme
+            {t.themeSwitcher.heading}
           </p>
-          {themes.map((t) => (
+          {THEME_SWATCHES.map((item) => (
             <button
-              key={t.id}
+              key={item.id}
               type="button"
-              onClick={() => apply(t.id)}
-              aria-pressed={active === t.id}
+              onClick={() => setTheme(item.id)}
+              aria-pressed={theme === item.id}
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.55rem',
+                gap: '0.45rem',
                 width: '100%',
-                padding: '0.42rem 0.5rem',
-                background: active === t.id ? 'var(--brand-soft)' : 'transparent',
+                padding: '0.32rem 0.45rem',
+                background: theme === item.id ? 'var(--brand-soft)' : 'transparent',
                 border: 'none',
-                borderRadius: '0.4rem',
+                borderRadius: '0.35rem',
                 cursor: 'pointer',
-                fontSize: '0.8rem',
-                color: active === t.id ? 'var(--brand-strong)' : 'var(--ink)',
-                fontWeight: active === t.id ? 700 : 500,
+                fontSize: '0.74rem',
+                color: theme === item.id ? 'var(--brand-strong)' : 'var(--ink)',
+                fontWeight: theme === item.id ? 700 : 500,
               }}
             >
               <span
                 aria-hidden="true"
                 style={{
-                  width: '0.8rem',
-                  height: '0.8rem',
+                  width: '0.68rem',
+                  height: '0.68rem',
                   borderRadius: '50%',
-                  background: t.color,
+                  background: item.color,
                   border: '1px solid rgba(0,0,0,0.18)',
                   display: 'inline-block',
                   flexShrink: 0,
                 }}
               />
-              {t.label}
+              {t.themeSwitcher.themes[item.id]}
             </button>
           ))}
         </div>
@@ -115,26 +121,30 @@ export function ThemeSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        aria-label="Toggle display theme options"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        aria-label={t.themeSwitcher.heading}
         aria-expanded={open}
         style={{
           display: 'inline-flex',
           alignItems: 'center',
-          gap: '0.4rem',
-          marginLeft: 'auto',
-          padding: '0.48rem 0.8rem',
-          background: 'var(--brand)',
-          color: 'var(--on-brand)',
-          border: '1px solid rgb(255 255 255 / 20%)',
-          borderRadius: 'var(--radius-sm)',
+          gap: '0.3rem',
+          padding: '0.3rem 0.55rem',
+          background: open || hovered ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.45)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
+          color: 'var(--ink-soft)',
+          border: '1px solid rgba(16, 35, 63, 0.14)',
+          borderRadius: '0.45rem',
           cursor: 'pointer',
-          fontSize: '0.78rem',
-          fontWeight: 700,
-          boxShadow: 'var(--shadow-sm)',
+          fontSize: '0.7rem',
+          fontWeight: 600,
+          opacity: open || hovered ? 1 : 0.7,
+          transition: 'opacity 0.15s ease, background 0.15s ease',
         }}
       >
-        <Palette size={15} aria-hidden="true" />
-        <span>Theme</span>
+        <Palette size={13} aria-hidden="true" />
+        <span>{t.themeSwitcher.buttonLabel}</span>
       </button>
     </div>
   )
