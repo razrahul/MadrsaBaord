@@ -2,9 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <title>Bihar State Madrasa Education Board (BSMEB) | बिहार राज्य मदरसा शिक्षा बोर्ड</title>
+    <meta
+      name="description"
+      content="Official public information portal of the Bihar State Madrasa Education Board (BSMEB), Patna, Government of Bihar — Notices, Tenders, Proformas, Examinations (Wastania, Fauquania, Moulvi), Results, and Affiliation."
+    />
+    <meta name="theme-color" content="#0d2c54" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bihar State Madrasa Education Board (BSMEB)" />
+    <meta
+      property="og:description"
+      content="Official portal for notices, tenders, examinations (Wastania, Fauquania, Moulvi), results, and affiliated madrasa resources in Bihar."
+    />
+    <meta property="og:image" content="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <script>
+      ;(function () {
+        try {
+          var root = document.documentElement
+          var theme = localStorage.getItem('bsmeb-theme')
+          var validThemes = [
+            'maroon-gold',
+            'royal-blue-teal',
+            'emerald-sage',
+            'clean-white',
+            'chaiui',
+          ]
+          if (theme && validThemes.indexOf(theme) !== -1) {
+            root.setAttribute('data-theme', theme)
+          }
+          var step = Number(localStorage.getItem('bsmeb-font-step'))
+          if (Number.isFinite(step) && step >= -2 && step <= 2) {
+            root.style.fontSize = 16 + step + 'px'
+          }
+          var lang = localStorage.getItem('bsmeb-language')
+          if (lang === 'hi' || lang === 'en') {
+            root.lang = lang
+          }
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
