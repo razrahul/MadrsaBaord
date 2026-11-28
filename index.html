@@ -16,6 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_IN" />
     <meta property="og:locale:alternate" content="hi_IN" />
+    <meta property="og:locale:alternate" content="ur_IN" />
     <meta property="og:site_name" content="Bihar State Madrasa Education Board (BSMEB)" />
     <meta property="og:title" content="Bihar State Madrasa Education Board (BSMEB)" />
     <meta
@@ -61,9 +62,15 @@
           var lang = localStorage.getItem('bsmeb-language')
           if (lang === 'hi') {
             root.lang = 'hi'
+            root.dir = 'ltr'
             document.title = 'बिहार राज्य मदरसा शिक्षा बोर्ड (BSMEB) | बिहार सरकार'
+          } else if (lang === 'ur') {
+            root.lang = 'ur'
+            root.dir = 'rtl'
+            document.title = 'بہار اسٹیٹ مدرسہ ایجوکیشن بورڈ (BSMEB) | حکومتِ بہار'
           } else if (lang === 'en') {
             root.lang = 'en'
+            root.dir = 'ltr'
             document.title = 'Bihar State Madrasa Education Board (BSMEB) | Government of Bihar'
           }
         } catch (e) {}
@@ -76,6 +83,8 @@
         <strong>Bihar State Madrasa Education Board (BSMEB), Patna</strong> — Please enable JavaScript in your browser to view this portal.
         <br />
         <span>बिहार राज्य मदरसा शिक्षा बोर्ड (BSMEB), पटना — इस पोर्टल को देखने के लिए कृपया अपने ब्राउज़र में JavaScript सक्षम करें।</span>
+        <br />
+        <span dir="rtl" lang="ur">بہار اسٹیٹ مدرسہ ایجوکیشن بورڈ (BSMEB)، پٹنہ — اس پورٹل کو دیکھنے کے لیے براہِ کرم اپنے براؤزر میں JavaScript فعال کریں۔</span>
       </div>
     </noscript>
     <div id="root"></div>

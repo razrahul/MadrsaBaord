@@ -84,7 +84,7 @@ export function GallerySection({ albums }: GallerySectionProps) {
                 <button
                   key={album.id}
                   type="button"
-                  className="group block w-full rounded-sm border-0 bg-transparent p-0 text-left"
+                  className="group block w-full rounded-sm border-0 bg-transparent p-0 text-start"
                   onClick={() => openAlbum(idx)}
                   aria-label={`${t.gallery.openAlbum}: ${albumTitle} (${album.images.length} ${t.gallery.photosWord})`}
                 >

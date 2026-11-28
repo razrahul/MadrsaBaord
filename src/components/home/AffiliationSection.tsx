@@ -58,7 +58,7 @@ export function AffiliationSection() {
                     href={card.href}
                     className="inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-brand-strong no-underline hover:underline"
                   >
-                    {copy.linkLabel} <ArrowRight size={14} aria-hidden="true" />
+                    {copy.linkLabel} <ArrowRight size={14} aria-hidden="true" className="rtl:rotate-180" />
                   </a>
                 </CardFooter>
               </Card>

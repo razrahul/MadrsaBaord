@@ -35,6 +35,7 @@ export interface BoardUpdate {
   title: string
   titleEn?: string
   titleHi?: string
+  titleUr?: string
   publishedAt: string // ISO 8601
   documentUrl: string
   language: 'hi' | 'en' | 'ur'

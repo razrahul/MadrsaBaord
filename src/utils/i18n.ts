@@ -53,6 +53,13 @@ export interface SiteTranslations {
     >
   }
   leaders: Record<'l1' | 'l2' | 'l3', { name: string; designation: string }>
+  leadershipTable: {
+    title: string
+    photoCol: string
+    nameCol: string
+    designationCol: string
+    footerLabel: string
+  }
   updates: {
     title: string
     pause: string
@@ -242,6 +249,13 @@ const translations: Record<Language, SiteTranslations> = {
         name: 'Janab Salim Parwez',
         designation: "Hon'ble Chairman\nBihar State Madrasa Education Board",
       },
+    },
+    leadershipTable: {
+      title: 'Board Leadership',
+      photoCol: 'Photo',
+      nameCol: 'Dignitary',
+      designationCol: 'Designation',
+      footerLabel: 'Bihar State Madrasa Education Board, Patna',
     },
     updates: {
       title: 'Notice Board',
@@ -548,6 +562,13 @@ const translations: Record<Language, SiteTranslations> = {
         designation: 'माननीय अध्यक्ष\nबिहार राज्य मदरसा शिक्षा बोर्ड',
       },
     },
+    leadershipTable: {
+      title: 'बोर्ड नेतृत्व',
+      photoCol: 'चित्र',
+      nameCol: 'पदाधिकारी',
+      designationCol: 'पदनाम',
+      footerLabel: 'बिहार राज्य मदरसा शिक्षा बोर्ड, पटना',
+    },
     updates: {
       title: 'सूचना पट्ट',
       pause: 'रोकें',
@@ -746,6 +767,318 @@ const translations: Record<Language, SiteTranslations> = {
         'emerald-sage': 'हरा / हल्का हरा',
         'clean-white': 'सफ़ेद / स्लेट',
         chaiui: 'वॉर्म एम्बर',
+      },
+    },
+  },
+  ur: {
+    brand: {
+      primaryName: 'بہار اسٹیٹ مدرسہ ایجوکیشن بورڈ',
+      secondaryName: 'Bihar State Madrasa Education Board',
+      govOfBihar: 'حکومتِ بہار',
+    },
+    header: {
+      skipToContent: 'اصل مواد پر جائیں',
+      biharPortal: 'بہار حکومت پورٹل',
+      decreaseText: 'فونٹ چھوٹا کریں',
+      defaultText: 'معمول کا فونٹ سائز',
+      increaseText: 'فونٹ بڑا کریں',
+      tickerLatest: 'تازہ ترین',
+      openMenu: 'مینو کھولیں',
+      closeMenu: 'مینو بند کریں',
+      newBadge: 'نیا',
+      examinationOverview: 'امتحان کا جائزہ',
+    },
+    nav: {
+      home: 'صفحہ اول',
+      about: 'بورڈ کا تعارف',
+      examination: 'امتحانات',
+      notices: 'نوٹس',
+      affiliation: 'الحاق',
+      contact: 'رابطہ',
+    },
+    examSubNav: {
+      admission: 'آن لائن داخلہ',
+      registration: 'رجسٹریشن',
+      examForm: 'امتحانی فارم',
+      admitCard: 'ایڈمٹ کارڈ',
+      results: 'امتحانی نتائج',
+    },
+    heroControls: {
+      carouselLabel: 'اہم جھلکیاں',
+      prevSlide: 'پچھلی سلائیڈ',
+      nextSlide: 'اگلی سلائیڈ',
+      pause: 'سلائیڈ روکیں',
+      play: 'سلائیڈ چلائیں',
+    },
+    heroSlides: {
+      'slide-1': {
+        eyebrow: 'بہار اسٹیٹ مدرسہ ایجوکیشن بورڈ',
+        title: 'صد سالہ تقریب (شتابدی سماروہ)',
+        description:
+          'عزت مآب وزیر اعلیٰ بہار اور بورڈ کے عہدیداران کے ہاتھوں شمع روشن کر کے شتابدی سماروہ کا افتتاح — بہار میں مدرسہ تعلیم کی ایک صدی کی خدمات کا جشن۔',
+        primaryLabel: 'تازہ ترین اطلاعات دیکھیں',
+        secondaryLabel: 'آن لائن خدمات',
+      },
+      'slide-2': {
+        eyebrow: 'قیادت اور ادارہ جاتی ورثہ',
+        title: 'بہار بھر کے مدارس کی ترقی و استحکام',
+        description:
+          'شتابدی سماروہ میں عزت مآب وزیر اعلیٰ کو توصیفی سند پیش کرتے چیئرمین — وسطانیہ، فوقانیہ اور مولوی تعلیم کے فروغ کا عزم۔',
+        primaryLabel: 'امتحانی تفصیلات',
+      },
+      'slide-3': {
+        eyebrow: 'صد سالہ سووینئر کی رسمِ اجراء',
+        title: 'علمی و تعلیمی فضیلت کے ۱۰۰ سال',
+        description:
+          'تقریب کے اسٹیج سے بی ایس ایم ای بی شتابدی سماروہ سووینئر کا باضابطہ اجراء — دہائیوں کی تعلیمی کامیابیوں، اساتذہ کی تربیت اور الحاق کی دستاویز۔',
+        primaryLabel: 'الحاق و قواعد',
+      },
+    },
+    services: {
+      srHeading: 'آن لائن خدمات',
+      comingSoonSuffix: 'جلد دستیاب',
+      items: {
+        'exam-form': {
+          title: 'امتحانی فارم',
+          description: 'وسطانیہ، فوقانیہ اور مولوی کے لیے امتحانی فارم پُر کریں اور جمع کریں۔',
+        },
+        equivalence: {
+          title: 'مساوات سرٹیفکیٹ',
+          description: 'بورڈ کی اسناد کے لیے مساوات سرٹیفکیٹ کی درخواست دیں۔',
+        },
+        'madrasa-services': {
+          title: 'مدرسہ ڈیش بورڈ',
+          description: 'ملحقہ مدارس کے لیے ادارہ جاتی انتظام پورٹل کھولیں۔',
+        },
+        downloads: {
+          title: 'ڈاؤن لوڈز',
+          description: 'پروفارما، سرکلرز اور سرکاری دستاویزات ڈاؤن لوڈ کریں۔',
+        },
+        'teacher-details': {
+          title: 'اساتذہ کی تفصیلات',
+          description: 'اپنے ادارے کے اساتذہ کی معلومات درج اور اپ ڈیٹ کریں۔',
+        },
+      },
+    },
+    leaders: {
+      l1: {
+        name: 'جناب سمراٹ چودھری',
+        designation: 'عزت مآب وزیر اعلیٰ، بہار',
+      },
+      l2: {
+        name: 'جناب متھلیش تیواری',
+        designation: 'عزت مآب وزیر تعلیم، بہار',
+      },
+      l3: {
+        name: 'جناب سلیم پرویز',
+        designation: 'عزت مآب چیئرمین\nبہار اسٹیٹ مدرسہ ایجوکیشن بورڈ',
+      },
+    },
+    leadershipTable: {
+      title: 'بورڈ قیادت',
+      photoCol: 'تصویر',
+      nameCol: 'عہدیدار',
+      designationCol: 'عہدہ',
+      footerLabel: 'بہار اسٹیٹ مدرسہ ایجوکیشن بورڈ، پٹنہ',
+    },
+    updates: {
+      title: 'نوٹس بورڈ',
+      pause: 'روکیں',
+      play: 'چلائیں',
+      viewArchive: 'مکمل ریکارڈ دیکھیں',
+      officialCount: (count, cat) => `${count} سرکاری ${cat}`,
+      newBadge: 'نیا',
+      categories: {
+        Notices: 'نوٹس',
+        Tenders: 'ٹینڈرز',
+        Proformas: 'پروفارما',
+      },
+      emptyTitle: (cat) => `ابھی کوئی ${cat} شائع نہیں ہوا ہے۔`,
+      emptyDescription:
+        'مصدقہ مواد دستیاب ہوتے ہی یہاں تاریخ، دستاویز کی قسم اور محفوظ لنک کے ساتھ ظاہر کیا جائے گا۔',
+    },
+    gallery: {
+      eyebrow: 'سرگرمیاں اور گیلری',
+      title: 'پروگرام اور تقاریب کے البم',
+      description: 'تقریب کی تصاویر دیکھنے کے لیے کسی بھی البم پر کلک کریں۔',
+      photosWord: 'تصاویر',
+      openAlbum: 'البم کھولیں',
+      closeViewer: 'تصویر بند کریں',
+      prevImage: 'پچھلی تصویر',
+      nextImage: 'اگلی تصویر',
+      albums: {
+        'album-shatabdi-samaroh': {
+          title: 'بی ایس ایم ای بی شتابدی سماروہ (صد سالہ تقریب)',
+          date: 'صد سالہ تقریب',
+          captions: [
+            'شتابدی سماروہ ہال میں بڑی تعداد میں شریک مدارس کے اساتذہ اور مندوبین',
+            'عزت مآب وزیر اعلیٰ اور بورڈ چیئرمین کے ہاتھوں شمع روشن کر کے تقریب کا آغاز',
+            'اسٹیج پر عزت مآب وزیر اعلیٰ اور معزز مہمانوں کا عظیم الشان پھولوں کے ہار سے استقبال',
+            'بورڈ چیئرمین کی جانب سے عزت مآب وزیر اعلیٰ کو اعزازی سند پیش',
+            'بی ایس ایم ای بی شتابدی سماروہ صد سالہ سووینئر کی باضابطہ رسمِ اجراء',
+            'بہار اسٹیٹ مدرسہ ایجوکیشن بورڈ کے اسٹیج سے خطاب',
+            'شتابدی سماروہ کے اسٹیج پر تشریف فرما چیئرمین جناب سلیم پرویز',
+          ],
+        },
+        'album-convocation': {
+          title: 'سالانہ تقریبِ تقسیمِ اسناد و اعزازات',
+          date: 'نومبر 2026',
+          captions: [
+            'سالانہ تقریب میں ممتاز طلبہ و طالبات کی عزت افزائی',
+            'فوقانیہ اور مولوی کے کامیاب طلبہ',
+            'تعلیمی معیار پر کلیدی خطاب',
+          ],
+        },
+        'album-training': {
+          title: 'اساتذہ مدارس تربیتی ورکشاپ',
+          date: 'اکتوبر 2026',
+          captions: [
+            'مدارس کے اساتذہ کے لیے تدریسی ورکشاپ',
+            'نصاب کی جدید کاری پر خصوصی نشست',
+            'ڈیجیٹل تعلیمی مواد کا جائزہ',
+          ],
+        },
+        'album-board-meeting': {
+          title: 'بورڈ نظم و نسق اور جائزہ اجلاس',
+          date: 'ستمبر 2026',
+          captions: [
+            'امتحانات اور الحاق کی پالیسیوں کا سہ ماہی جائزہ',
+            'بورڈ ہیڈکوارٹر اور انتظامی عمارت',
+          ],
+        },
+      },
+    },
+    examination: {
+      eyebrow: 'امتحانات اور مساوات',
+      title: 'امتحانی پروگرام',
+      description:
+        'بی ایس ایم ای بی تین اہم بورڈ امتحانات منعقد کرتا ہے جنہیں ملک بھر کے تعلیمی اور سرکاری اداروں میں تسلیم کیا جاتا ہے۔',
+      keySubjects: 'اہم مضامین',
+      equivalentTo: 'مساوی درجہ',
+      programs: {
+        wastania: {
+          name: 'وسطانیہ',
+          secondaryName: 'Wastania',
+          level: 'متوسط سطح',
+          duration: '3 سال',
+          description:
+            'بنیادی سطح کا امتحان جس میں اسلامیات، عربی، اردو، ہندی، ریاضی اور عمومی مضامین شامل ہیں۔',
+          subjects: [
+            'اسلامیات',
+            'عربی',
+            'اردو',
+            'ہندی',
+            'ریاضی',
+            'سائنس اور سماجی علوم',
+          ],
+          equivalentTo: 'جماعت ہشتم (مڈل اسکول معیار)',
+        },
+        fauquania: {
+          name: 'فوقانیہ',
+          secondaryName: 'Fauquania',
+          level: 'ثانوی سطح',
+          duration: '2 سال',
+          description:
+            'وسطانیہ کے بعد ثانوی سطح کا بورڈ امتحان جس میں اسلامیات، زبانیں، ریاضی اور سائنس شامل ہیں۔',
+          subjects: [
+            'اسلامیات',
+            'عربی',
+            'اردو',
+            'ہندی / انگریزی',
+            'ریاضی',
+            'سائنس اور سماجی سائنس',
+          ],
+          equivalentTo: 'جماعت دہم (میٹرک معیار)',
+        },
+        moulvi: {
+          name: 'مولوی',
+          secondaryName: 'Moulvi',
+          level: 'اعلیٰ ثانوی سطح',
+          duration: '2 سال',
+          description:
+            'اسلامی علوم، عربی اور اختیاری شعبوں (آرٹس، سائنس، کامرس، اسلامیات) میں اعلیٰ ثانوی سند۔',
+          subjects: [
+            'اسلامی دینیات',
+            'عربی و فارسی',
+            'اردو و انگریزی',
+            'آرٹس / سائنس / کامرس',
+          ],
+          equivalentTo: 'جماعت دوازدہم (انٹرمیڈیٹ معیار)',
+        },
+      },
+    },
+    affiliation: {
+      eyebrow: 'الحاق اور ضوابط',
+      title: 'الحاق، ایکٹ اور ضوابط',
+      description:
+        'ملحقہ مدارس کے لیے سرکاری وسائل، قانونی قواعد اور ادارہ جاتی رہنما خطوط۔',
+      cards: {
+        process: {
+          title: 'الحاق کا طریقہ کار',
+          description:
+            'مدارس کے نئے الحاق اور تجدید کے لیے رہنما اصول، اہلیت کے معیار اور درخواست فارم۔',
+          linkLabel: 'رہنما اصول دیکھیں',
+        },
+        search: {
+          title: 'ادارہ تلاش کریں',
+          description:
+            'ڈائریکٹری ڈیٹا شائع ہونے پر ضلع، بلاک یا مدرسہ کوڈ کے ذریعے ملحقہ مدارس تلاش کریں۔',
+          linkLabel: 'ڈائریکٹری دیکھیں',
+        },
+        inspection: {
+          title: 'معائنہ اور تعمیل',
+          description:
+            'ملحقہ مدارس کے لیے معائنہ چیک لسٹ، بنیادی ڈھانچے کے معیار اور سالانہ تعمیل کی تفصیلات۔',
+          linkLabel: 'چیک لسٹ دیکھیں',
+        },
+        'act-regulations': {
+          title: 'ایکٹ اور قواعد',
+          description:
+            'بہار اسٹیٹ مدرسہ ایجوکیشن بورڈ ایکٹ، قانونی قواعد، سروس شرائط اور سرکاری ضوابط۔',
+          linkLabel: 'ایکٹ اور قواعد پڑھیں',
+        },
+      },
+    },
+    footer: {
+      govLabel: 'حکومتِ بہار',
+      tagline:
+        'بہار میں مدرسہ تعلیم، امتحانات اور الحاق کے لیے ایک خود مختار قانونی بورڈ۔',
+      quickLinksTitle: 'اہم روابط',
+      contactTitle: 'رابطہ',
+      policiesTitle: 'پالیسیاں',
+      quickLinks: {
+        notices: 'نوٹس اور ٹینڈرز',
+        examination: 'امتحانی معلومات',
+        affiliation: 'الحاق اور ایکٹ',
+        services: 'آن لائن خدمات',
+        gallery: 'تصویری گیلری',
+      },
+      policies: {
+        privacy: 'رازداری کی پالیسی',
+        accessibility: 'رسائی کا بیان',
+        rti: 'آر ٹی آئی معلومات',
+        terms: 'استعمال کی شرائط',
+      },
+      address: '5، ودیاپتی مارگ، پٹنہ، بہار — 800001',
+      hours: 'پیر تا جمعہ: صبح 9:30 تا شام 6:00 بجے',
+      socialLabels: {
+        facebook: 'فیس بک',
+        twitter: 'ٹویٹر',
+        youtube: 'یوٹیوب',
+      },
+      copyrightSuffix: 'حکومتِ بہار۔',
+      portalTag: 'سرکاری عوامی معلوماتی پورٹل',
+    },
+    themeSwitcher: {
+      buttonLabel: 'تھیم',
+      heading: 'ڈسپلے تھیم',
+      themes: {
+        'navy-saffron': 'نیوی / زعفرانی',
+        'maroon-gold': 'میرون / سنہرا',
+        'royal-blue-teal': 'رائل بلیو / ٹیل',
+        'emerald-sage': 'سبز / ہلکا سبز',
+        'clean-white': 'سفید / سلیٹ',
+        chaiui: 'وارم امبر',
       },
     },
   },

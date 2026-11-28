@@ -32,7 +32,7 @@ export function HomeContainer() {
           className="bg-surface-muted py-6"
           aria-label="Board leadership and public updates"
         >
-          <div className="site-shell grid grid-cols-1 items-center gap-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+          <div className="site-shell grid grid-cols-1 items-stretch gap-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
             <LeadershipSection leaders={leaders} />
             <UpdatesSection
               updates={boardUpdates}
