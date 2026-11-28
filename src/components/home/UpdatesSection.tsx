@@ -1,7 +1,9 @@
 import { ArrowRight, FileText, Pause, Play } from 'lucide-react'
 import { useState } from 'react'
 import { usePreferences } from '@/app/PreferencesContext'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Chip } from '@/components/ui/chip'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { updateCategories } from '@/data/home-data'
 import { cn } from '@/lib/utils'
@@ -73,9 +75,9 @@ export function UpdatesSection({
           </div>
 
           <div className="col-start-2 flex shrink-0 items-center justify-start gap-3 sm:col-start-auto">
-            <span className="rounded-xs border border-line/45 bg-surface-muted/35 px-2 py-0.5 text-[11px] font-medium text-ink-soft">
+            <Chip className="rounded-xs border-line/55 bg-surface-muted/35 text-ink-soft">
               {langLabel[item.language]}
-            </span>
+            </Chip>
             <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-strong underline-offset-2 group-hover:underline">
               <FileText size={13} aria-hidden="true" />
               <span>{item.fileType ?? 'PDF'}</span>
@@ -87,13 +89,13 @@ export function UpdatesSection({
   }
 
   return (
-    <div id="updates" className="flex flex-col" aria-labelledby="updates-title">
+    <div id="updates" className="flex h-full flex-col" aria-labelledby="updates-title">
       <Tabs
         value={activeCategory}
         onValueChange={(value) => onCategoryChange(value as UpdateCategory)}
-        className="gap-0"
+        className="h-full gap-0"
       >
-        <Card className="gap-0 overflow-hidden rounded-sm border border-line/45 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0">
+        <Card className="h-full gap-0 overflow-hidden rounded-sm border border-line/45 bg-surface py-0 shadow-[0_1px_3px_rgb(16_35_63_/_5%)] ring-0">
           <CardHeader className="shrink-0 gap-0 bg-surface p-0!">
             <div className="flex items-center justify-between gap-3 px-5 pt-4 pb-2.5">
               <div className="flex flex-col gap-1.5">
@@ -103,12 +105,14 @@ export function UpdatesSection({
                 >
                   {t.updates.title}
                 </CardTitle>
-                <span className="h-[2px] w-10 bg-brand-strong" aria-hidden="true" />
+                <span className="h-0.5 w-10 bg-brand-strong" aria-hidden="true" />
               </div>
 
-              <button
+              <Button
                 type="button"
-                className="inline-flex items-center gap-1.5 rounded-sm border border-line/60 bg-surface px-3 py-1.5 text-xs font-medium text-ink-soft transition-colors hover:border-brand/40 hover:bg-surface-muted/50 hover:text-ink"
+                variant="outline"
+                size="sm"
+                className="h-7.5 rounded-sm! border-line/60 bg-surface px-3 text-xs font-medium text-ink-soft shadow-none hover:border-brand/40 hover:bg-surface-muted/50 hover:text-ink focus-visible:ring-1"
                 onClick={() => setIsPaused((p) => !p)}
                 aria-label={isPaused ? t.updates.play : t.updates.pause}
                 title={isPaused ? t.updates.play : t.updates.pause}
@@ -119,7 +123,7 @@ export function UpdatesSection({
                   <Pause size={12} aria-hidden="true" />
                 )}
                 <span>{isPaused ? t.updates.play : t.updates.pause}</span>
-              </button>
+              </Button>
             </div>
 
             <TabsList
@@ -131,7 +135,7 @@ export function UpdatesSection({
                 <TabsTrigger
                   key={category}
                   value={category}
-                  className="-mb-px inline-flex items-baseline gap-1.5 rounded-none border-0 border-b-2 border-transparent px-0.5 py-2.5 text-[13.5px] font-semibold text-ink-soft transition-colors hover:text-ink data-[state=active]:border-brand-strong data-[state=active]:bg-transparent data-[state=active]:font-bold data-[state=active]:text-ink"
+                  className="-mb-px inline-flex items-baseline gap-1.5 rounded-none border-b-2 border-transparent px-1 py-2.5 text-[13.5px] font-semibold text-ink-soft transition-colors outline-none! hover:text-ink focus-visible:bg-surface-muted/50 focus-visible:ring-0! focus-visible:outline-none! data-[state=active]:border-brand-strong data-[state=active]:bg-transparent data-[state=active]:font-bold data-[state=active]:text-brand-strong"
                 >
                   <span>{t.updates.categories[category]}</span>
                   <span className="text-[11px] font-normal text-ink-soft/80">
@@ -174,7 +178,7 @@ export function UpdatesSection({
             )}
           </CardContent>
 
-          <CardFooter className="flex items-center justify-between border-t border-line/45 bg-surface-muted/35 px-5 py-2.5! text-xs text-ink-soft">
+          <CardFooter className="mt-auto flex items-center justify-between border-t border-line/45 bg-surface-muted/35 px-5 py-2.5! text-xs text-ink-soft">
             <span>{t.updates.officialCount(filtered.length, activeCategoryLabel)}</span>
             <a
               href="#updates"

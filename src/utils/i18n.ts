@@ -53,6 +53,13 @@ export interface SiteTranslations {
     >
   }
   leaders: Record<'l1' | 'l2' | 'l3', { name: string; designation: string }>
+  leadershipTable: {
+    title: string
+    photoCol: string
+    nameCol: string
+    designationCol: string
+    footerLabel: string
+  }
   updates: {
     title: string
     pause: string
@@ -242,6 +249,13 @@ const translations: Record<Language, SiteTranslations> = {
         name: 'Janab Salim Parwez',
         designation: "Hon'ble Chairman\nBihar State Madrasa Education Board",
       },
+    },
+    leadershipTable: {
+      title: 'Board Leadership',
+      photoCol: 'Photo',
+      nameCol: 'Dignitary',
+      designationCol: 'Designation',
+      footerLabel: 'Bihar State Madrasa Education Board, Patna',
     },
     updates: {
       title: 'Notice Board',
@@ -547,6 +561,13 @@ const translations: Record<Language, SiteTranslations> = {
         name: 'जनाब सलीम परवेज़',
         designation: 'माननीय अध्यक्ष\nबिहार राज्य मदरसा शिक्षा बोर्ड',
       },
+    },
+    leadershipTable: {
+      title: 'बोर्ड नेतृत्व',
+      photoCol: 'चित्र',
+      nameCol: 'पदाधिकारी',
+      designationCol: 'पदनाम',
+      footerLabel: 'बिहार राज्य मदरसा शिक्षा बोर्ड, पटना',
     },
     updates: {
       title: 'सूचना पट्ट',
