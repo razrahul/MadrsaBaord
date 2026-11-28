@@ -99,7 +99,7 @@ export function HeroSection({ slides }: HeroSectionProps) {
                 className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-white px-4 py-2.5 text-sm font-bold text-brand-strong no-underline transition-colors hover:bg-surface-muted"
                 href={slide.primaryAction.href}
               >
-                {primaryLabel} <ArrowRight size={16} aria-hidden="true" />
+                {primaryLabel} <ArrowRight size={16} aria-hidden="true" className="rtl:rotate-180" />
               </a>
             )}
             {slide.secondaryAction && secondaryLabel && (
@@ -140,6 +140,7 @@ export function HeroSection({ slides }: HeroSectionProps) {
 
           <div
             className="absolute right-3 bottom-3 z-10 inline-flex items-center gap-2 text-xs font-extrabold tracking-widest text-white sm:right-5 sm:bottom-5"
+            dir="ltr"
             aria-label={t.heroControls.carouselLabel}
           >
             <button

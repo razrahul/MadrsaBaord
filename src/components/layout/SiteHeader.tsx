@@ -51,7 +51,12 @@ export function SiteHeader() {
 
   const tickerItems = boardUpdates.slice(0, 6).map((u) => ({
     id: u.id,
-    title: language === 'hi' ? (u.titleHi ?? u.title) : (u.titleEn ?? u.title),
+    title:
+      language === 'hi'
+        ? (u.titleHi ?? u.title)
+        : language === 'ur'
+          ? (u.titleUr ?? u.title)
+          : (u.titleEn ?? u.title),
     isNew: Boolean(u.isNew),
   }))
 
@@ -127,6 +132,7 @@ export function SiteHeader() {
             <span className="hidden h-3.5 w-px bg-white/20 lg:block" aria-hidden="true" />
             <a
               href={`mailto:${siteContact.emails[0]}`}
+              dir="ltr"
               className="hidden items-center gap-1.5 font-semibold whitespace-nowrap text-white/90 no-underline transition hover:text-white hover:underline lg:inline-flex"
             >
               <Mail size={12} aria-hidden="true" />
@@ -189,7 +195,7 @@ export function SiteHeader() {
             <span className="h-3.5 w-px bg-white/20" aria-hidden="true" />
 
             <div className="inline-flex items-center gap-1" role="group" aria-label="Language switch">
-              <Globe size={12} aria-hidden="true" className="mr-0.5 text-white/80" />
+              <Globe size={12} aria-hidden="true" className="me-0.5 text-white/80" />
               <button
                 type="button"
                 className={cn(
@@ -218,6 +224,20 @@ export function SiteHeader() {
               >
                 हिंदी
               </button>
+              <button
+                type="button"
+                className={cn(
+                  'rounded border px-1.5 py-0.5 text-[11px] leading-tight font-bold transition',
+                  language === 'ur'
+                    ? 'border-white bg-white text-brand-strong'
+                    : 'border-white/25 bg-transparent text-white/90 hover:bg-white/15 hover:text-white'
+                )}
+                onClick={() => setLanguage('ur')}
+                aria-pressed={language === 'ur'}
+                lang="ur"
+              >
+                اردو
+              </button>
             </div>
           </div>
         </div>
@@ -235,11 +255,12 @@ export function SiteHeader() {
           <Bell size={13} aria-hidden="true" />
           {t.header.tickerLatest}
         </span>
-        <div className="relative flex-1 overflow-hidden" aria-live="off">
+        <div className="relative flex-1 overflow-hidden" dir="ltr" aria-live="off">
           <div className="ticker-inner">
             {[...tickerItems, ...tickerItems].map((item, i) => (
               <span
                 key={`${item.id}-${i}`}
+                dir={language === 'ur' ? 'rtl' : 'ltr'}
                 className="inline-flex items-center gap-2 px-6"
               >
                 {item.isNew && <Badge variant="hot">{t.updates.newBadge}</Badge>}
@@ -270,7 +291,7 @@ export function SiteHeader() {
       >
         <div className="site-shell flex min-h-20 items-center gap-5 py-1.5">
           <a
-            className="mr-2 inline-flex shrink-0 items-center gap-3.5 no-underline"
+            className="me-2 inline-flex shrink-0 items-center gap-3.5 no-underline"
             href="#home"
             aria-label={t.brand.primaryName}
           >
@@ -292,7 +313,7 @@ export function SiteHeader() {
           </a>
 
           {/* Nav links — desktop */}
-          <div className="ml-auto hidden items-center gap-0.5 lg:flex" role="list">
+          <div className="ms-auto hidden items-center gap-0.5 lg:flex" role="list">
             {navItems.map((item) => {
               if (item.children && item.children.length > 0) {
                 const isOpen = openDropdown === item.key
@@ -341,7 +362,7 @@ export function SiteHeader() {
                           <ArrowRight
                             size={13}
                             aria-hidden="true"
-                            className="opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100"
+                            className="opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100 rtl:rotate-180 rtl:group-hover:-translate-x-0.5"
                           />
                         </a>
                         {item.children.map((sub) => (
@@ -356,7 +377,7 @@ export function SiteHeader() {
                             <ArrowRight
                               size={13}
                               aria-hidden="true"
-                              className="opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100"
+                              className="opacity-0 transition group-hover:translate-x-0.5 group-hover:opacity-100 rtl:rotate-180 rtl:group-hover:-translate-x-0.5"
                             />
                           </a>
                         ))}
@@ -383,7 +404,7 @@ export function SiteHeader() {
 
           {/* Mobile toggle */}
           <button
-            className="ml-auto grid size-10 shrink-0 place-items-center rounded-sm border border-line bg-surface text-brand lg:hidden"
+            className="ms-auto grid size-10 shrink-0 place-items-center rounded-sm border border-line bg-surface text-brand lg:hidden"
             type="button"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav-panel"
@@ -405,7 +426,7 @@ export function SiteHeader() {
                   <div key={item.key} className="flex flex-col">
                     <button
                       type="button"
-                      className="flex w-full items-center justify-between rounded-sm px-4 py-3 text-left text-base font-bold text-ink-soft transition hover:bg-brand-soft hover:text-brand"
+                      className="flex w-full items-center justify-between rounded-sm px-4 py-3 text-start text-base font-bold text-ink-soft transition hover:bg-brand-soft hover:text-brand"
                       aria-expanded={mobileSubOpen === item.key}
                       onClick={() =>
                         setMobileSubOpen((v) => (v === item.key ? null : item.key))
@@ -422,7 +443,7 @@ export function SiteHeader() {
                       />
                     </button>
                     {mobileSubOpen === item.key && (
-                      <div className="ml-4 flex flex-col gap-0.5 border-l-2 border-line py-1 pl-4">
+                      <div className="ms-4 flex flex-col gap-0.5 border-s-2 border-line py-1 ps-4">
                         <a
                           href={item.href}
                           onClick={() => setIsMenuOpen(false)}

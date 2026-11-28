@@ -10,9 +10,9 @@ import { cn } from '@/lib/utils'
 import type { BoardUpdate, UpdateCategory } from '@/types/home'
 import { useTranslations } from '@/utils/i18n'
 
-function splitDate(iso: string, locale: 'en' | 'hi'): { day: string; monthYear: string } {
+function splitDate(iso: string, locale: 'en' | 'hi' | 'ur'): { day: string; monthYear: string } {
   const date = new Date(iso)
-  const loc = locale === 'hi' ? 'hi-IN' : 'en-IN'
+  const loc = locale === 'hi' ? 'hi-IN' : locale === 'ur' ? 'ur-IN' : 'en-IN'
   const day = date.toLocaleDateString(loc, { day: '2-digit' })
   const monthYear = date.toLocaleDateString(loc, { month: 'short', year: 'numeric' })
   return { day, monthYear }
@@ -45,7 +45,12 @@ export function UpdatesSection({
     updates.filter((u) => u.category === cat).length
 
   const renderUpdateRow = (item: BoardUpdate, keySuffix = '') => {
-    const title = language === 'hi' ? (item.titleHi ?? item.title) : (item.titleEn ?? item.title)
+    const title =
+      language === 'hi'
+        ? (item.titleHi ?? item.title)
+        : language === 'ur'
+          ? (item.titleUr ?? item.title)
+          : (item.titleEn ?? item.title)
     const { day, monthYear } = splitDate(item.publishedAt, language)
 
     return (
@@ -185,7 +190,7 @@ export function UpdatesSection({
               className="inline-flex items-center gap-1 font-semibold text-brand-strong no-underline transition-colors hover:underline"
             >
               <span>{t.updates.viewArchive}</span>
-              <ArrowRight size={13} aria-hidden="true" />
+              <ArrowRight size={13} aria-hidden="true" className="rtl:rotate-180" />
             </a>
           </CardFooter>
         </Card>

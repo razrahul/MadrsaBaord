@@ -102,6 +102,7 @@ export function SiteFooter() {
             <Phone aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-[#ffdca5]" />
             <a
               href={siteContact.phoneHref}
+              dir="ltr"
               className="text-inherit no-underline hover:text-white hover:underline"
             >
               {siteContact.phone}
@@ -112,6 +113,7 @@ export function SiteFooter() {
               <Mail aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-[#ffdca5]" />
               <a
                 href={`mailto:${email}`}
+                dir="ltr"
                 className="text-inherit no-underline hover:text-white hover:underline"
               >
                 {email}
@@ -144,7 +146,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="site-shell flex flex-col items-center justify-between gap-2 border-t border-white/15 py-5 text-center text-xs text-white/70 sm:flex-row sm:text-left">
+      <div className="site-shell flex flex-col items-center justify-between gap-2 border-t border-white/15 py-5 text-center text-xs text-white/70 sm:flex-row sm:text-start">
         <span>
           © {currentYear} {t.brand.primaryName}. {t.footer.copyrightSuffix}
         </span>

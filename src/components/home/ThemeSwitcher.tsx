@@ -58,7 +58,7 @@ export function ThemeSwitcher() {
               onClick={() => setTheme(item.id)}
               aria-pressed={theme === item.id}
               className={cn(
-                'flex w-full items-center gap-2 rounded-xs border-0 px-2 py-1.5 text-left text-xs transition',
+                'flex w-full items-center gap-2 rounded-xs border-0 px-2 py-1.5 text-start text-xs transition',
                 theme === item.id
                   ? 'bg-brand-soft font-bold text-brand-strong'
                   : 'bg-transparent font-medium text-ink hover:bg-surface-muted'

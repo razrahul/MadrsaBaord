@@ -28,7 +28,7 @@ export function LeadershipSection({ leaders }: LeadershipSectionProps) {
         </CardHeader>
 
         <CardContent className="flex flex-1 flex-col p-0!">
-          <table className="h-full w-full border-collapse text-left">
+          <table className="h-full w-full border-collapse text-start">
             <thead className="sr-only">
               <tr>
                 <th scope="col">{t.leadershipTable.photoCol}</th>
@@ -36,7 +36,7 @@ export function LeadershipSection({ leaders }: LeadershipSectionProps) {
                 <th scope="col">{t.leadershipTable.designationCol}</th>
               </tr>
             </thead>
-            <tbody className="[&>tr:not(:last-child)>td]:bg-[image:radial-gradient(circle,color-mix(in_srgb,var(--ink)_24%,transparent)_0.75px,transparent_0.85px)] [&>tr:not(:last-child)>td]:bg-bottom [&>tr:not(:last-child)>td]:bg-repeat-x [&>tr:not(:last-child)>td]:bg-[length:7px_2px]">
+            <tbody className="[&>tr:not(:last-child)>td]:bg-[image:repeating-linear-gradient(to_right,color-mix(in_srgb,var(--ink)_24%,transparent)_0_2px,transparent_2px_7px)] [&>tr:not(:last-child)>td]:bg-bottom [&>tr:not(:last-child)>td]:bg-no-repeat [&>tr:not(:last-child)>td]:bg-[length:100%_1px]">
               {sorted.map((leader) => {
                 const localized = t.leaders[leader.id as keyof typeof t.leaders]
                 const name = localized?.name ?? leader.name
@@ -64,7 +64,7 @@ export function LeadershipSection({ leaders }: LeadershipSectionProps) {
                         {designation}
                       </div>
                     </td>
-                    <td className="hidden px-3 py-4 align-middle sm:table-cell sm:pr-5">
+                    <td className="hidden px-3 py-4 align-middle sm:table-cell sm:pe-5">
                       <span className="whitespace-pre-line font-sans text-[12.5px] leading-snug font-semibold text-brand-strong">
                         {designation}
                       </span>

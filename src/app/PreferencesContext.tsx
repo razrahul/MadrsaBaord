@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useReducer, type ReactNode } from 'react'
 
-export type Language = 'en' | 'hi'
+export type Language = 'en' | 'hi' | 'ur'
 
 export type ThemeId =
   | 'navy-saffron'
@@ -45,7 +45,7 @@ function clampFontStep(value: number): number {
 function readInitialLanguage(): Language {
   if (typeof window === 'undefined') return 'en'
   const saved = window.localStorage.getItem(STORAGE_KEYS.language)
-  return saved === 'hi' ? 'hi' : 'en'
+  return saved === 'hi' || saved === 'ur' ? saved : 'en'
 }
 
 function readInitialFontStep(): number {
@@ -104,13 +104,16 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     theme: readInitialTheme(),
   }))
 
-  // Sync language to <html lang="...">, document title, and localStorage
+  // Sync language to <html lang="..." dir="...">, document title, and localStorage
   useEffect(() => {
     document.documentElement.lang = state.language
+    document.documentElement.dir = state.language === 'ur' ? 'rtl' : 'ltr'
     document.title =
       state.language === 'hi'
         ? 'बिहार राज्य मदरसा शिक्षा बोर्ड (BSMEB) | बिहार सरकार'
-        : 'Bihar State Madrasa Education Board (BSMEB) | Government of Bihar'
+        : state.language === 'ur'
+          ? 'بہار اسٹیٹ مدرسہ ایجوکیشن بورڈ (BSMEB) | حکومتِ بہار'
+          : 'Bihar State Madrasa Education Board (BSMEB) | Government of Bihar'
     window.localStorage.setItem(STORAGE_KEYS.language, state.language)
   }, [state.language])
 
