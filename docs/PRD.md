@@ -2,8 +2,8 @@
 
 **Project:** Bihar State Madrasa Education Board (BSMEB) public website frontend  
 **Document status:** Draft for content and visual approval  
-**Last updated:** 26 November 2026  
-**Implementation:** React, TypeScript, Vite, Tailwind CSS v4, Shadcn UI
+**Last updated:** 28 November 2026  
+**Implementation:** React 19, TypeScript, Vite 8, Tailwind CSS v4, Shadcn UI (`@base-ui/react`), ChaiUI primitives
 
 ## 1. Product summary
 
@@ -16,7 +16,7 @@ The first release is a frontend-first homepage with mock, typed content. Content
 - Present a clear, formal, and accessible official-board identity.
 - Make notices, tenders, proformas, results, examinations, and online services discoverable in one or two interactions.
 - Work well on low-end mobile devices and at common desktop resolutions.
-- Support Hindi-first content and remain ready for English and Urdu.
+- Support trilingual content across English (`en`), Hindi (`hi`), and Urdu (`ur` with automatic `dir="rtl"` layout mirroring).
 - Keep visual tokens centralised, so the full brand theme can be changed without component-by-component edits.
 - Use reusable, typed, testable React code with clean separation between page composition, display components, data access, and utilities.
 
@@ -246,7 +246,8 @@ All official content requires a source/owner before production publishing. Place
 - Tailwind CSS v4 installed and integrated through the Vite plugin.
 - `@/*` import alias configured for Vite and TypeScript.
 - Shadcn `components.json` created from the supplied preset.
-- Shadcn Button and Card components installed, plus ChaiUI `Badge`, `Tabs`, and `Chip` primitives (`@chaiui/badge`, `@chaiui/tabs`, `@chaiui/chip`).
+- Shadcn `Button`, `Card`, and `@base-ui/react` `Dialog` components installed, plus ChaiUI `Badge`, `Tabs`, and `Chip` primitives (`@chaiui/badge`, `@chaiui/tabs`, `@chaiui/chip`).
+- Netlify and SPA deployment configuration added (`.nvmrc` and `netlify.toml` pinned to Node.js `22.23.5`, plus `public/_redirects` and `public/.htaccess`).
 - ChaiUI skills (`chaiui`, `chaiui-review`) installed under `.agents/skills/`.
 - ChaiUI registry configured at `https://ui.chaicode.com/r/{name}.json`.
 - `@base-ui/react` installed because the selected `base-maia` Shadcn component requires it.
@@ -320,11 +321,29 @@ All official content requires a source/owner before production publishing. Place
 - Migrated all layout and section components (`SiteHeader`, `HeroSection`, `ServicesSection`, `LeadershipSection`, `UpdatesSection`, `GallerySection`, `ExaminationSection`, `AffiliationSection`, `SiteFooter`, `ThemeSwitcher`, `SectionHeading`, `SectionWave`, `HomeContainer`) to Tailwind CSS v4 utilities and Shadcn/ChaiUI primitives, shrinking `src/styles/globals.css` from ~2,040 lines of unlayered CSS down to ~115 lines of `@layer base` resets, `.site-shell`, `.skip-link`, and marquee/scroll `@keyframes`.
 - Verified `pnpm run build` and `pnpm run lint` pass with 0 errors.
 
+### 27 November 2026 — Govt minimalist UI polish, Shatabdi Samaroh content & Netlify config
+
+- Refined `ServicesSection.tsx` card height (`w-42`, `min-h-48`) and unified all homepage cards, containers, portraits, buttons, and menus across `ServicesSection`, `UpdatesSection`, `LeadershipSection`, `GallerySection`, `ExaminationSection`, `AffiliationSection`, `HeroSection`, `ThemeSwitcher`, `SiteHeader`, `SiteFooter`, and `src/components/ui/card.tsx` to a crisp minimalist `4px` (`rounded-sm`) / `2px` (`rounded-xs`) radius with restrained `border-line` borders and `src/styles/theme.css` `--radius-*` tokens.
+- Removed decorative uppercase eyebrow labels from `SectionHeading.tsx` (`GallerySection`, `ExaminationSection`, `AffiliationSection`) and softened kickers in `HeroSection.tsx` and `SiteFooter.tsx` so section headers consistently match the serif title + `h-[2px]` `bg-brand-strong` government style.
+- Updated `SiteHeader.tsx` brand emblem sizing (`size-13 sm:size-17`, `min-h-20`), updated BSMEB Chairman (`l3`) details in `home-data.ts` and `i18n.ts` to `Janab Salim Parwez` (`Hon'ble Chairman` / `Bihar State Madrasa Education Board`), and updated `index.html` with dynamic `meta[name="theme-color"]` sync, pre-hydration bilingual `<title>`, `color-scheme`, `/logo.png` preload, and `<noscript>` fallback.
+- Replaced demo `HeroSection` slides with BSMEB Shatabdi Samaroh photographs (`41296823`, `41296825`, `41296824` with `object-top` framing and matching copy) and added the `album-shatabdi-samaroh` (`7` photos) album as the lead entry in `GallerySection` / `home-data.ts` / `i18n.ts`.
+- Added `.nvmrc` and `netlify.toml` pinning Node.js `22.23.5` (`pnpm run build` → `dist`), security headers, and `/assets/*` immutable caching alongside `public/_redirects` and `public/.htaccess`; anchored `stage` cleanly onto blank `main` (`985f448`) for clean PR merges.
+
+### 28 November 2026 — Govt Leadership Table, Notice Board primitives & full Urdu (`RTL`) support
+
+- Redesigned `LeadershipSection.tsx` from a 2+1 pyramid into a full-height Govt directory `<table>` card (`sr-only` `<thead>`, clean `Board Leadership` header + `CardFooter`, uniform `size-18 sm:size-21` portraits, pure Tailwind `repeating-linear-gradient` `1px` crisp dotted row dividers, and equal-height alignment with `UpdatesSection.tsx` via `items-stretch` in `HomeContainer.tsx`).
+- Updated `UpdatesSection.tsx` to use Shadcn `<Button variant="outline" size="sm">` for Pause/Play, `@chaiui` `<Chip>` for notice language labels, visible `2px` `border-brand-strong` active tab underlines (fixing `border-0` overlap), and suppressed orange `:focus-visible` ring boxes (`focus-visible:ring-0! outline-none!`).
+- Added full trilingual **Urdu (`ur`) + RTL (`dir="rtl"`)** support alongside English (`en`) and Hindi (`hi`):
+  - Updated `PreferencesContext.tsx` and `index.html` pre-hydration script to sync `lang`, `dir` (`rtl` for `ur`, `ltr` for `en`/`hi`), and localized `<title>` plus Urdu `<noscript>` fallback.
+  - Added the `اردو` switcher button in `SiteHeader.tsx`, `titleUr` fields across all 12 updates in `src/types/home.ts` and `src/data/home-data.ts`, complete Urdu translations in `src/utils/i18n.ts`, and `ur-IN` date formatting in `UpdatesSection.tsx`.
+  - Applied RTL-safe logical Tailwind utilities (`text-start`, `ms-auto`, `me-2`, `ps-4`, `border-s-2`, `sm:pe-5`), `rtl:rotate-180` directional arrows, and explicit `dir="ltr"` containers for notification ticker animation, phone/email links, and hero carousel controls.
+- Verified `pnpm run build` (`tsc -b && vite build`) and `pnpm run lint` (`oxlint`) pass with 0 errors.
+
 ### Next implementation step
 
-- Replace placeholder leader names, images, contact details, and official URLs with approved board content.
-- Connect notices/tenders/proformas to a real API, CMS, or JSON feed.
-- Add RTI, privacy-policy, and accessibility-statement pages.
-- Performance: audit images, switch hero to `<picture>`/WebP, add explicit dimensions, enable lazy loading on below-fold images.
-- QA: cross-browser, mobile-device, and accessibility (axe/NVDA) pass before launch.
+- Confirm official leader names/photos (`l1`, `l2`, `l3`), remaining album entries, and verified destination URLs before opening the `stage -> main` release PR.
+- Connect notices/tenders/proformas to a live API, CMS, or JSON feed when backend endpoints are ready.
+- Add dedicated RTI, privacy-policy, and accessibility-statement pages.
+- Performance: audit external image dimensions/WebP delivery for hero and gallery assets.
+- QA: cross-browser, mobile (`320px+`), RTL (`ur`), and accessibility (axe/NVDA) pass before launch.
 
